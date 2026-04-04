@@ -13,11 +13,13 @@
 # Expects: proc_dir defined by parent qmd (falls back to data/processed/)
 # =============================================================================
 
-if (!exists("proc_dir")) proc_dir <- file.path("data", "processed")
+if (!exists("proc_dir")) {
+  proc_dir <- file.path("data", "processed")
+}
 dir.create(proc_dir, showWarnings = FALSE, recursive = TRUE)
 
 source("scripts/_immune_markers.R")
-danaher_genes <- unique(c(unlist(immune_markers), "KIAA0125"))
+danaher_genes <- unique(unlist(immune_markers))
 
 .log <- character()
 
@@ -41,23 +43,39 @@ cbio <- cBioPortal()
 # =============================================================================
 # Helper: fetch clinical + expression for a study
 # =============================================================================
-fetch_cohort <- function(cbio, study_id, mrna_profile_id, label, proc_dir,
-                         danaher_genes, is_linear_scale = FALSE) {
+fetch_cohort <- function(
+  cbio,
+  study_id,
+  mrna_profile_id,
+  label,
+  proc_dir,
+  danaher_genes,
+  is_linear_scale = FALSE
+) {
   log <- character()
 
   clin_file <- file.path(proc_dir, paste0(label, "_clinical.csv"))
   expr_file <- file.path(proc_dir, paste0(label, "_expression.csv"))
 
   if (all(file.exists(c(clin_file, expr_file)))) {
-    log <- c(log, sprintf("[%s] Using cached files (delete to re-fetch)", label))
+    log <- c(
+      log,
+      sprintf("[%s] Using cached files (delete to re-fetch)", label)
+    )
     return(log)
   }
 
-  log <- c(log, sprintf("[%s] Fetching from cBioPortal (study: %s)", label, study_id))
+  log <- c(
+    log,
+    sprintf("[%s] Fetching from cBioPortal (study: %s)", label, study_id)
+  )
 
   # ---- Clinical data --------------------------------------------------------
   clin_raw <- clinicalData(cbio, studyId = study_id)
-  log <- c(log, sprintf("  Raw clinical: %d rows x %d cols", nrow(clin_raw), ncol(clin_raw)))
+  log <- c(
+    log,
+    sprintf("  Raw clinical: %d rows x %d cols", nrow(clin_raw), ncol(clin_raw))
+  )
 
   # Standardise column names across cohorts
   # METABRIC uses CLAUDIN_SUBTYPE, TCGA uses SUBTYPE
@@ -69,8 +87,16 @@ fetch_cohort <- function(cbio, study_id, mrna_profile_id, label, proc_dir,
     NA_character_
   }
 
-  os_status_col <- if ("OS_STATUS" %in% names(clin_raw)) "OS_STATUS" else NA_character_
-  os_months_col <- if ("OS_MONTHS" %in% names(clin_raw)) "OS_MONTHS" else NA_character_
+  os_status_col <- if ("OS_STATUS" %in% names(clin_raw)) {
+    "OS_STATUS"
+  } else {
+    NA_character_
+  }
+  os_months_col <- if ("OS_MONTHS" %in% names(clin_raw)) {
+    "OS_MONTHS"
+  } else {
+    NA_character_
+  }
 
   clinical_clean <- clin_raw %>%
     transmute(
@@ -99,12 +125,23 @@ fetch_cohort <- function(cbio, study_id, mrna_profile_id, label, proc_dir,
         NA_character_
       },
       pam50_subtype = if (!is.na(pam50_col)) .[[pam50_col]] else NA_character_,
-      os_months = if (!is.na(os_months_col)) as.numeric(.[[os_months_col]]) else NA_real_,
-      os_status = if (!is.na(os_status_col)) .[[os_status_col]] else NA_character_
+      os_months = if (!is.na(os_months_col)) {
+        as.numeric(.[[os_months_col]])
+      } else {
+        NA_real_
+      },
+      os_status = if (!is.na(os_status_col)) {
+        .[[os_status_col]]
+      } else {
+        NA_character_
+      }
     )
 
   write.csv(clinical_clean, clin_file, row.names = FALSE)
-  log <- c(log, sprintf("  %s_clinical.csv: %d patients", label, nrow(clinical_clean)))
+  log <- c(
+    log,
+    sprintf("  %s_clinical.csv: %d patients", label, nrow(clinical_clean))
+  )
 
   # ---- Expression data (Danaher marker genes only) ---------------------------
   expr_raw <- getDataByGenes(
@@ -117,23 +154,35 @@ fetch_cohort <- function(cbio, study_id, mrna_profile_id, label, proc_dir,
 
   df <- expr_raw[[mrna_profile_id]]
   if (is.null(df) || nrow(df) == 0) {
-    stop(sprintf("[%s] No expression data returned for profile %s", label, mrna_profile_id))
+    stop(sprintf(
+      "[%s] No expression data returned for profile %s",
+      label,
+      mrna_profile_id
+    ))
   }
 
   genes_returned <- unique(df$hugoGeneSymbol)
   genes_missing <- setdiff(danaher_genes, genes_returned)
-  log <- c(log, sprintf(
-    "  Expression: %d genes x %d samples",
-    length(genes_returned), length(unique(df$sampleId))
-  ))
+  log <- c(
+    log,
+    sprintf(
+      "  Expression: %d genes x %d samples",
+      length(genes_returned),
+      length(unique(df$sampleId))
+    )
+  )
   if (length(genes_missing) > 0) {
-    log <- c(log, sprintf("  Missing genes: %s", paste(genes_missing, collapse = ", ")))
+    log <- c(
+      log,
+      sprintf("  Missing genes: %s", paste(genes_missing, collapse = ", "))
+    )
   }
 
   expr_wide <- df %>%
     select(hugoGeneSymbol, sampleId, value) %>%
     pivot_wider(
-      names_from = sampleId, values_from = value,
+      names_from = sampleId,
+      values_from = value,
       values_fn = ~ mean(.x, na.rm = TRUE)
     )
 
@@ -161,10 +210,16 @@ fetch_cohort <- function(cbio, study_id, mrna_profile_id, label, proc_dir,
 # 1. METABRIC
 # =============================================================================
 .log <- c(
-  .log, "",
+  .log,
+  "",
   tryCatch(
-    fetch_cohort(cbio, "brca_metabric", "brca_metabric_mrna",
-      "metabric", proc_dir, danaher_genes,
+    fetch_cohort(
+      cbio,
+      "brca_metabric",
+      "brca_metabric_mrna",
+      "metabric",
+      proc_dir,
+      danaher_genes,
       is_linear_scale = FALSE
     ),
     error = function(e) sprintf("[metabric] FAILED: %s", conditionMessage(e))
@@ -182,7 +237,8 @@ mrna_profiles <- tcga_profiles %>%
   filter(grepl("mrna|rna", molecularProfileId, ignore.case = TRUE))
 
 .log <- c(
-  .log, "",
+  .log,
+  "",
   sprintf("[tcga] Available mRNA profiles for %s:", tcga_study),
   sprintf("  %s (%s)", mrna_profiles$molecularProfileId, mrna_profiles$name)
 )
@@ -195,17 +251,27 @@ tcga_mrna_id <- mrna_profiles$molecularProfileId[
 if (length(tcga_mrna_id) == 0) {
   # Fallback: take first non-zscore profile
   tcga_mrna_id <- mrna_profiles$molecularProfileId[
-    !grepl("z_scores|zscores", mrna_profiles$molecularProfileId, ignore.case = TRUE)
+    !grepl(
+      "z_scores|zscores",
+      mrna_profiles$molecularProfileId,
+      ignore.case = TRUE
+    )
   ][1]
 }
 tcga_mrna_id <- tcga_mrna_id[1] # take first match
 .log <- c(.log, sprintf("[tcga] Selected profile: %s", tcga_mrna_id))
 
 .log <- c(
-  .log, "",
+  .log,
+  "",
   tryCatch(
-    fetch_cohort(cbio, tcga_study, tcga_mrna_id,
-      "tcga", proc_dir, danaher_genes,
+    fetch_cohort(
+      cbio,
+      tcga_study,
+      tcga_mrna_id,
+      "tcga",
+      proc_dir,
+      danaher_genes,
       is_linear_scale = TRUE
     ),
     error = function(e) sprintf("[tcga] FAILED: %s", conditionMessage(e))
@@ -222,7 +288,10 @@ dir.create(raw_dir, showWarnings = FALSE, recursive = TRUE)
 
 # The gene-level file will be inside a GSE194040 subdirectory
 ispy_dir <- file.path(raw_dir, "GSE194040")
-ispy_file <- file.path(ispy_dir, "GSE194040_ISPY2ResID_AgilentGeneExp_990_FrshFrzn_meanCol_geneLevel_n988.txt.gz")
+ispy_file <- file.path(
+  ispy_dir,
+  "GSE194040_ISPY2ResID_AgilentGeneExp_990_FrshFrzn_meanCol_geneLevel_n988.txt.gz"
+)
 
 if (!file.exists(ispy_file)) {
   .log <- c(.log, "[ispy2] Downloading gene-level expression from GEO...")
@@ -235,16 +304,22 @@ if (!file.exists(ispy_file)) {
     makeDirectory = TRUE
   )
 
-  .log <- c(.log, sprintf(
-    "  Downloaded: %s (%.1f MB)",
-    basename(ispy_file),
-    file.size(ispy_file) / 1024^2
-  ))
+  .log <- c(
+    .log,
+    sprintf(
+      "  Downloaded: %s (%.1f MB)",
+      basename(ispy_file),
+      file.size(ispy_file) / 1024^2
+    )
+  )
 } else {
-  .log <- c(.log, sprintf(
-    "[ispy2] Using cached file (%.1f MB)",
-    file.size(ispy_file) / 1024^2
-  ))
+  .log <- c(
+    .log,
+    sprintf(
+      "[ispy2] Using cached file (%.1f MB)",
+      file.size(ispy_file) / 1024^2
+    )
+  )
 }
 
 
@@ -254,7 +329,10 @@ if (!file.exists(ispy_file)) {
 .log <- c(.log, "", "--- File check ---")
 for (f in list.files(proc_dir, pattern = "\\.csv$")) {
   fp <- file.path(proc_dir, f)
-  .log <- c(.log, sprintf("  %s (%s)", f, format(file.size(fp), big.mark = ",")))
+  .log <- c(
+    .log,
+    sprintf("  %s (%s)", f, format(file.size(fp), big.mark = ","))
+  )
 }
 
 message(paste(.log, collapse = "\n"))
