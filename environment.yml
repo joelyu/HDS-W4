@@ -1,0 +1,30 @@
+name: cytotoxcore
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  # R core
+  - r-base>=4.3
+  # Quarto rendering
+  - quarto
+  - r-knitr
+  - r-rmarkdown
+  # Data wrangling
+  - r-dplyr
+  - r-tidyr
+  - r-tibble
+  - r-forcats
+  # Survival analysis
+  - r-survival
+  - r-survminer
+  # Visualisation (ggplot ecosystem)
+  - r-ggplot2
+  - r-patchwork
+  - r-ggrepel
+  - r-rcolorbrewer
+  - r-viridislite
+  - r-scales
+  # Bioconductor — bioconda dependency chains can break on osx-arm64.
+  # If `mamba env create` fails on cBioPortalData / GEOquery, install from R after env creation:
+  #   Rscript -e 'if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager"); BiocManager::install(c("cBioPortalData", "GEOquery"))'
+  - r-biocmanager
