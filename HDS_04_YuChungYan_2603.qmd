@@ -163,13 +163,11 @@ invisible(capture.output(suppressMessages({
 # ------------------------------------------------------------------
 
 PALETTE <- list(
-  metabric     = "#0072B2",  # Okabe-Ito blue
-  tcga         = "#009E73",  # Okabe-Ito bluish green
-  pembro       = "#D55E00",  # Okabe-Ito vermillion
-  tumour       = "#CC79A7",  # Okabe-Ito reddish purple
+  metabric     = "#D55E00",  # Okabe-Ito vermillion
+  tcga         = "#0072B2",  # Okabe-Ito blue
+  pembro       = "#CC79A7",  # Okabe-Ito reddish purple
   control      = "#4D4D4D",  # dark grey
-  neutral      = "#4D4D4D",  # alias
-  highlight_bg = "#FFF9E6"   # cream (forest plot emphasis boxes)
+  neutral      = "#4D4D4D"   # alias
 )
 
 # Named vectors for ggplot scale_* helpers
@@ -224,9 +222,9 @@ scale_fill_arm      <- function(...) scale_fill_manual(values = ARM_COLOURS, ...
 # (reuses METABRIC and pembro colours as palette anchors)
 scale_fill_diverging <- function(limits = c(-1, 1), ...) {
   scale_fill_gradient2(
-    low      = PALETTE$metabric,
+    low      = PALETTE$tcga,
     mid      = "white",
-    high     = PALETTE$pembro,
+    high     = PALETTE$metabric,
     midpoint = 0,
     limits   = limits,
     ...
@@ -554,7 +552,7 @@ km_plot <- ggsurvplot(
   fit_km_m,
   data         = surv_m_km,
   conf.int     = TRUE,
-  palette      = c(PALETTE$neutral, PALETTE$pembro),
+  palette      = c(PALETTE$neutral, PALETTE$metabric),
   pval         = TRUE,
   pval.coord   = c(150, 0.85),
   xlab         = "Time (months)",
