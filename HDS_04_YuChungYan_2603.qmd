@@ -94,8 +94,678 @@ For each of the questions, do not spend too long answering – keep it brief. Fo
 
 > The GitHub repository of this project is found at .
 
-# Abstract
+# Design rationale
 
+<!--
+Max 250 words. Include:
+  - Intended audience (who, why)
+  - Colour palette choices
+  - Labelling and annotation strategy
+  - Layout and visual hierarchy
+  - Any audience-specific decisions
+-->
+
+*[To be written — 250 word limit]*
+
+# Setup
+
+```{r}
+#| label: setup
+#| include: false
+
+# Key visualisation packages
+# (data-pipeline packages — dplyr, survival, GEOquery, cBioPortalData —
+# are loaded inside the sourced scripts)
+suppressPackageStartupMessages({
+  library(ggplot2)
+  library(patchwork)
+  library(ggrepel)
+  library(scales)
+  library(viridisLite)
+  library(survminer)
+  library(forcats)
+})
+
+# Source the full analysis pipeline
+# The scripts handle their own caching via CSV files in data/processed/,
+# so re-running is fast on subsequent renders.
+invisible(capture.output(suppressMessages({
+  source("scripts/00-fetch-data.R")
+  source("scripts/01-immune-scoring.R")
+  source("scripts/02-explore.R")
+  source("scripts/03-pca-cytotoxic.R")
+  source("scripts/04-confirmatory-cox.R")
+  source("scripts/05-ispy2.R")
+})))
+```
+
+# Plot theme and palette
+
+```{r}
+#| label: plot-theme
+#| echo: true
+
+# ------------------------------------------------------------------
+# Palette — Okabe-Ito colourblind-safe set, assigned to narrative
+# roles so each colour has one job across all figures.
+#
+#   METABRIC (discovery cohort)         → blue
+#   TCGA (validation cohort)            → bluish green
+#   Pembrolizumab arm (Fig 3B only)     → vermillion
+#   Tumour / central illustration only  → reddish purple
+#   Control / neutral / background      → dark grey
+#   Highlight box fill (forest plots)   → cream
+#
+# Every figure uses at most 2–3 of these at once (Nature-style 3–4
+# colour limit). Emphasis on the cytotoxic signature is carried by
+# box overlays and shape, not by an extra colour — keeping colour
+# reserved for categorical cohort encoding.
+# ------------------------------------------------------------------
+
+PALETTE <- list(
+  metabric     = "#0072B2",  # Okabe-Ito blue
+  tcga         = "#009E73",  # Okabe-Ito bluish green
+  pembro       = "#D55E00",  # Okabe-Ito vermillion
+  tumour       = "#CC79A7",  # Okabe-Ito reddish purple
+  control      = "#4D4D4D",  # dark grey
+  neutral      = "#4D4D4D",  # alias
+  highlight_bg = "#FFF9E6"   # cream (forest plot emphasis boxes)
+)
+
+# Named vectors for ggplot scale_* helpers
+COHORT_COLOURS <- c(
+  METABRIC = PALETTE$metabric,
+  TCGA     = PALETTE$tcga
+)
+
+ARM_COLOURS <- c(
+  Pembrolizumab = PALETTE$pembro,
+  Control       = PALETTE$control
+)
+
+# ------------------------------------------------------------------
+# theme_hds() — clean, Tufte-inspired, axis-only, white background
+# Designed at base_size=14 for .qmd preview; figures scale up in
+# Illustrator for A1 export (minimums: 24pt axis, 22pt ticks).
+# ------------------------------------------------------------------
+theme_hds <- function(base_size = 14) {
+  theme_classic(base_size = base_size) +
+    theme(
+      # Titles and axes
+      plot.title        = element_text(face = "bold", size = base_size * 1.15),
+      plot.subtitle     = element_text(colour = "grey40", size = base_size * 0.95),
+      axis.title        = element_text(face = "plain", size = base_size),
+      axis.text         = element_text(size = base_size * 0.9),
+      axis.line         = element_line(colour = "black", linewidth = 0.4),
+      axis.ticks        = element_line(colour = "black", linewidth = 0.4),
+      # Legend
+      legend.title      = element_text(face = "bold", size = base_size * 0.95),
+      legend.text       = element_text(size = base_size * 0.9),
+      legend.background = element_blank(),
+      legend.key        = element_blank(),
+      legend.position   = "right",
+      # Panels and strip
+      panel.background  = element_rect(fill = "white", colour = NA),
+      panel.grid        = element_blank(),
+      strip.background  = element_blank(),
+      strip.text        = element_text(face = "bold", size = base_size * 0.95),
+      # Overall
+      plot.background   = element_rect(fill = "white", colour = NA)
+    )
+}
+
+# Convenience scale functions — consistent cohort encoding
+scale_colour_cohort <- function(...) scale_colour_manual(values = COHORT_COLOURS, ...)
+scale_fill_cohort   <- function(...) scale_fill_manual(values = COHORT_COLOURS, ...)
+scale_colour_arm    <- function(...) scale_colour_manual(values = ARM_COLOURS, ...)
+scale_fill_arm      <- function(...) scale_fill_manual(values = ARM_COLOURS, ...)
+
+# Diverging gradient for heatmaps: blue ↔ white ↔ vermillion
+# (reuses METABRIC and pembro colours as palette anchors)
+scale_fill_diverging <- function(limits = c(-1, 1), ...) {
+  scale_fill_gradient2(
+    low      = PALETTE$metabric,
+    mid      = "white",
+    high     = PALETTE$pembro,
+    midpoint = 0,
+    limits   = limits,
+    ...
+  )
+}
+```
+
+# Figures
+
+## Figure 1 — Cross-cohort immune cell screen
+
+*Claim: Across 14 immune cell types in METABRIC and TCGA, a protective lymphocyte cluster (cytotoxic cells, B-cells, CD8 T-cells) is the only group consistent across cohorts.*
+
+### 1A. Forest plot: 14 cell types, PAM50-adjusted HRs, both cohorts
+
+```{r}
+#| label: fig-1a-forest
+#| fig-width: 7
+#| fig-height: 8
+
+# --- Prepare data -----------------------------------------------------------
+# `comparison` comes from 02-explore.R (long format, both models)
+# Saved to data/processed/cox_comparison.csv but the in-memory name is `comparison`
+forest_data <- comparison %>%
+  filter(model == "PAM50-adjusted") %>%
+  mutate(
+    cohort = factor(cohort, levels = c("metabric", "tcga"),
+                    labels = c("METABRIC", "TCGA"))
+  )
+
+# Cell type order: by METABRIC PC1 loading (from script 03, loadings_m)
+# This ties Fig 1A visual ordering to Fig 2A (loading plot) — same sequence
+cell_order <- names(sort(abs(loadings_m), decreasing = FALSE))  # bottom-up for ggplot
+forest_data <- forest_data %>%
+  mutate(cell_type = factor(cell_type, levels = cell_order))
+
+# --- Append the fully-adjusted cytotoxic row (f3/g3 PRIMARY models) ---------
+# These come from cox_robustness in 04-confirmatory-cox.R. Adding them as a
+# new top row lets the forest plot show both the discovery screen (PAM50-
+# adjusted, 14 cell types) AND the confirmatory survival result for cytotoxic
+# (fully adjusted for PAM50 + age + stage) in one figure. The top row will be
+# highlighted in Illustrator to signal its different adjustment level.
+primary_row <- cox_robustness %>%
+  filter(grepl("PRIMARY", model)) %>%
+  transmute(
+    cohort    = factor(cohort, levels = c("METABRIC", "TCGA")),
+    cell_type = "Cytotoxic (fully adjusted)",
+    hr        = HR,
+    hr_lower  = HR_lower,
+    hr_upper  = HR_upper
+  )
+
+# Extend the cell-type ordering so the new row sits at the very top
+cell_order_ext <- c(cell_order, "Cytotoxic (fully adjusted)")
+
+forest_data <- bind_rows(
+  forest_data %>% select(cohort, cell_type, hr, hr_lower, hr_upper),
+  primary_row
+) %>%
+  mutate(cell_type = factor(cell_type, levels = cell_order_ext))
+
+# Dodge width for per-row cohort offset
+dodge_width <- 0.5
+
+# --- Build plot -------------------------------------------------------------
+fig_1a <- ggplot(forest_data, aes(x = hr, y = cell_type, colour = cohort)) +
+  # Reference line at HR = 1.0
+  geom_vline(xintercept = 1, linetype = "dashed",
+             colour = PALETTE$neutral, linewidth = 0.4) +
+  # 95% CI error bars
+  geom_errorbarh(
+    aes(xmin = hr_lower, xmax = hr_upper),
+    height = 0,
+    position = position_dodge(width = dodge_width),
+    linewidth = 0.6
+  ) +
+  # HR point estimates
+  geom_point(
+    size = 3.5,
+    position = position_dodge(width = dodge_width)
+  ) +
+  # Log-scale x-axis (HR is multiplicative)
+  scale_x_continuous(
+    trans = "log10",
+    breaks = c(0.6, 0.7, 0.8, 0.9, 1.0, 1.1),
+    labels = c("0.6", "0.7", "0.8", "0.9", "1.0", "1.1")
+  ) +
+  # Clean cell type labels: replace underscores with spaces
+  scale_y_discrete(labels = function(x) gsub("_", " ", x)) +
+  scale_colour_cohort() +
+  labs(
+    title = "Hazard ratios for METABRIC and TCGA-BRCA cohorts",
+    x = "Hazard ratio (per 1 SD, 95% CI)",
+    y = "Immune cell populations",
+    colour = NULL
+  ) +
+  theme_hds() +
+  theme(
+    legend.position = "top",
+    legend.justification = "left"
+  )
+
+ggsave("fig_1a.svg", fig_1a, width = 8, height = 9, device = "svg")
+fig_1a
+```
+
+## Figure 2 — Cytotoxic cells anchor the dominant immune axis
+
+*Claim: PCA on all 14 cell types shows cytotoxic cells at the top of PC1 loadings in both cohorts; cytotoxic and B-cells are collinear and either captures the same signal.*
+
+### 2A. Cleveland dot plot — PC1 loadings by cohort
+
+```{r}
+#| label: fig-2a-loadings
+#| fig-width: 7
+#| fig-height: 6
+
+# --- Cleveland dot plot: PC1 loading per cell type, both cohorts -----------
+# loadings_m and loadings_t come from 03-pca-cytotoxic.R
+# Use absolute values so the comparison is on magnitude (direction is
+# arbitrary in PCA — both cohorts already flipped to positive PC1 = hot)
+loadings_clev <- data.frame(
+  cell_type = names(loadings_m),
+  metabric  = abs(loadings_m),
+  tcga      = abs(loadings_t[names(loadings_m)])
+) %>%
+  # Order top-down by METABRIC loading (cytotoxic at the top)
+  mutate(
+    cell_type = factor(
+      cell_type,
+      levels = cell_type[order(metabric)]  # ascending → ggplot puts largest at top
+    )
+  )
+
+# Long format for the dots
+loadings_clev_long <- loadings_clev %>%
+  tidyr::pivot_longer(
+    cols = c(metabric, tcga),
+    names_to = "cohort",
+    values_to = "loading"
+  ) %>%
+  mutate(
+    cohort = factor(cohort,
+                    levels = c("metabric", "tcga"),
+                    labels = c("METABRIC", "TCGA"))
+  )
+
+cell_order_clev <- levels(loadings_clev$cell_type)  # used by Fig 2B for shared y-ordering
+
+fig_2a <- ggplot(loadings_clev_long, aes(x = loading, y = cell_type)) +
+  # Connecting line per cell type — its length shows cross-cohort disagreement
+  geom_line(aes(group = cell_type), colour = "grey70", linewidth = 0.6) +
+  # Cohort dots
+  geom_point(aes(colour = cohort), size = 3.5) +
+  # Cell type labels back on the left; heatmap (2B) sits to the right in
+  # the Illustrator layout and its own y-axis provides the pairing
+  scale_y_discrete(labels = function(x) gsub("_", " ", x)) +
+  scale_colour_cohort() +
+  labs(
+    title = "Principal component contribution of immune populations\nfor METABRIC & TCGA cohorts",
+    x = "Absolute PC1 loading",
+    y = "Immune cell populations",
+    colour = NULL,
+    subtitle = sprintf("PC1 explains %.1f%% of variance (METABRIC)", var_pc1)
+  ) +
+  theme_hds() +
+  theme(
+    legend.position = "top",
+    legend.justification = "left",
+    # Horizontal y-axis title (non-default) — sits left of tick labels
+    axis.title.y = element_text(angle = 0, vjust = 0.5, hjust = 0.5,
+                                margin = margin(r = 10))
+  )
+
+ggsave("fig_2a.svg", fig_2a, width = 7, height = 6, device = "svg")
+fig_2a
+```
+
+### 2B. Collinearity heatmap (METABRIC, 14 × 14)
+
+```{r}
+#| label: fig-2b-heatmap
+#| fig-width: 7
+#| fig-height: 6
+
+# --- METABRIC pairwise correlation between cell type scores --------------
+score_cols_2b <- setdiff(
+  colnames(scores_metabric),
+  c("patient_id", "cohort", "T_cells")
+)
+
+corr_m <- cor(surv_metabric[, score_cols_2b], use = "pairwise.complete.obs")
+
+# Reorder the matrix rows/columns to match the plotting order (Fig 2A)
+# BEFORE blanking the upper triangle, so the blanked half aligns with the
+# visual layout. Without this, the triangle gets computed on alphabetical
+# order and plotted on loading order → random missing rows/columns.
+corr_m <- corr_m[cell_order_clev, cell_order_clev]
+
+# Blank the upper triangle — symmetric matrix, upper half is redundant.
+# Keep diagonal (self-correlations = 1) as a visual anchor.
+corr_m[upper.tri(corr_m)] <- NA
+
+# Long format — factor levels match the matrix ordering
+corr_long <- as.data.frame(corr_m) %>%
+  tibble::rownames_to_column("cell_a") %>%
+  tidyr::pivot_longer(-cell_a, names_to = "cell_b", values_to = "r") %>%
+  filter(!is.na(r)) %>%  # drop the blanked upper triangle
+  mutate(
+    cell_a = factor(cell_a, levels = cell_order_clev),
+    cell_b = factor(cell_b, levels = cell_order_clev)
+  )
+
+fig_2b <- ggplot(corr_long, aes(x = cell_a, y = cell_b, fill = r)) +
+  geom_tile(colour = "white", linewidth = 0.3) +
+  geom_text(
+    aes(label = sprintf("%.2f", r)),
+    size = 2.5,
+    colour = ifelse(abs(corr_long$r) > 0.6, "white", "black")
+  ) +
+  scale_fill_diverging(limits = c(-1, 1), name = "Pearson r") +
+  scale_x_discrete(labels = function(x) gsub("_", " ", x)) +
+  scale_y_discrete(
+    labels = function(x) gsub("_", " ", x),
+    position = "right"  # sit on the right so the labels face outward,
+                        # away from Fig 2A in the Illustrator layout
+  ) +
+  labs(
+    title = "Immune population score collinearity (METABRIC)",
+    x = "Immune cell populations",
+    y = NULL,
+    subtitle = "Cell populations ordered by METABRIC PC1 loading (Fig 2A)"
+  ) +
+  theme_hds() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.border = element_rect(colour = NA, fill = NA)
+  )
+
+ggsave("fig_2b.svg", fig_2b, width = 7, height = 6, device = "svg")
+fig_2b
+```
+
+### 2C. Progressive adjustment forest (cytotoxic HR across models)
+
+```{r}
+#| label: fig-2c-progressive
+#| fig-width: 8
+#| fig-height: 5
+
+# --- Prepare data: the cox_robustness table from 04-confirmatory-cox.R ---
+# Drop METABRIC sensitivity-only rows (grade, NPI) — those are internal
+# checks, not part of the core comparison with TCGA
+adjustment_data <- cox_robustness %>%
+  filter(!grepl("Grade|NPI", model)) %>%
+  mutate(
+    cohort = factor(cohort, levels = c("METABRIC", "TCGA")),
+    # Uniform short labels so both cohorts stack cleanly top-to-bottom
+    model_label = case_when(
+      grepl("Unadjusted", model)    ~ "Unadjusted",
+      grepl("^\\+PAM50$", model)    ~ "+ PAM50",
+      grepl("\\+Age$", model)        ~ "+ Age",
+      grepl("Stage \\[PRIMARY\\]", model) ~ "+ Stage\n[PRIMARY]",
+      TRUE ~ model
+    ),
+    model_label = factor(
+      model_label,
+      levels = rev(c("Unadjusted", "+ PAM50", "+ Age", "+ Stage\n[PRIMARY]"))
+    )
+  )
+
+fig_2c <- ggplot(adjustment_data, aes(x = HR, y = model_label, colour = cohort)) +
+  # Reference line at HR = 1
+  geom_vline(xintercept = 1, linetype = "dashed",
+             colour = PALETTE$neutral, linewidth = 0.4) +
+  # 95% CI bars
+  geom_errorbarh(
+    aes(xmin = HR_lower, xmax = HR_upper),
+    height = 0, linewidth = 0.6
+  ) +
+  # HR estimates
+  geom_point(size = 3.5) +
+  # Side-by-side panels, not stacked
+  facet_wrap(~ cohort, ncol = 2) +
+  scale_x_continuous(
+    trans = "log10",
+    breaks = c(0.7, 0.8, 0.9, 1.0, 1.1)
+  ) +
+  scale_colour_cohort(guide = "none") +
+  labs(
+    x = "Cytotoxic cells HR (per 1 SD)",
+    y = NULL
+  ) +
+  theme_hds()
+
+ggsave("fig_2c.svg", fig_2c, width = 8, height = 5, device = "svg")
+fig_2c
+```
+
+## Figure 3 — Clinical translation
+
+*Claim: Higher cytotoxic infiltration is associated with longer survival (METABRIC) and improved pCR in the I-SPY2 pembrolizumab arm.*
+
+### 3A. Kaplan-Meier — cytotoxic high vs low (METABRIC)
+
+```{r}
+#| label: fig-3a-km
+#| fig-width: 7
+#| fig-height: 5
+
+# --- Median split on cytotoxic score, METABRIC ---------------------------
+surv_m_km <- surv_metabric %>%
+  mutate(
+    cyto_group = factor(
+      ifelse(Cytotoxic_cells >= median(Cytotoxic_cells),
+             "High cytotoxic", "Low cytotoxic"),
+      levels = c("Low cytotoxic", "High cytotoxic")
+    )
+  )
+
+fit_km_m <- survfit(Surv(os_months, os_event) ~ cyto_group, data = surv_m_km)
+
+# survminer::ggsurvplot returns a list with $plot — extract it for theming
+km_plot <- ggsurvplot(
+  fit_km_m,
+  data         = surv_m_km,
+  conf.int     = TRUE,
+  palette      = c(PALETTE$neutral, PALETTE$pembro),
+  pval         = TRUE,
+  pval.coord   = c(150, 0.85),
+  xlab         = "Time (months)",
+  ylab         = "Overall survival probability",
+  legend.title = "",
+  legend.labs  = c("Low cytotoxic", "High cytotoxic"),
+  ggtheme      = theme_hds()
+)
+
+# Strip the fill-box from the legend key (leaves only the coloured line)
+fig_3a <- km_plot$plot +
+  guides(
+    colour = guide_legend(override.aes = list(fill = NA)),
+    fill   = "none"
+  ) +
+  labs(title = "Overall survival by cytotoxic infiltration (METABRIC)")
+
+ggsave("fig_3a.svg", fig_3a, width = 7, height = 5, device = "svg")
+fig_3a
+```
+
+### 3B. I-SPY2 logistic curves (pembro vs control)
+
+```{r}
+#| label: fig-3b-logistic
+#| fig-width: 7
+#| fig-height: 5
+
+# --- Prepare data: stack pembro + control with arm label and pooled cyto_z --
+# `pooled` is in memory from 05-ispy2.R (pembro + control, scaled once)
+ispy_plot_data <- pooled %>%
+  mutate(
+    arm_label = factor(
+      ifelse(is_pembro == 1, "Pembrolizumab", "Control"),
+      levels = c("Pembrolizumab", "Control")
+    )
+  )
+
+fig_3b <- ggplot(ispy_plot_data,
+                 aes(x = Cytotoxic_cells_z, y = pcr, colour = arm_label, fill = arm_label)) +
+  # Rug marks for individual patients (top for pCR=1, bottom for pCR=0)
+  geom_point(
+    position = position_jitter(height = 0.03, width = 0),
+    alpha = 0.5, size = 1.2
+  ) +
+  # Logistic regression curve per arm with 95% CI ribbon
+  geom_smooth(
+    method = "glm",
+    method.args = list(family = "binomial"),
+    se = TRUE, alpha = 0.15, linewidth = 0.8
+  ) +
+  scale_colour_arm(
+    guide = guide_legend(override.aes = list(fill = NA))  # strip fill from key
+  ) +
+  scale_fill_arm(guide = "none") +  # hide fill from legend — only line shows
+  scale_y_continuous(
+    breaks = c(0, 0.25, 0.5, 0.75, 1),
+    labels = c("0", "0.25", "0.50", "0.75", "1"),
+    limits = c(-0.05, 1.05)
+  ) +
+  labs(
+    title = "Pathological complete response in I-SPY2 by cytotoxic score",
+    x = "Cytotoxic immune cell population score (normalised & pooled)",
+    y = "Pathological complete response",
+    colour = NULL,
+    fill = NULL
+  ) +
+  theme_hds() +
+  theme(
+    legend.position = "top",
+    legend.justification = "left"
+  )
+
+ggsave("fig_3b.svg", fig_3b, width = 8, height = 5, device = "svg")
+fig_3b
+```
+
+# Supplementary figures
+
+## Cox assumption tests
+
+### Schoenfeld residuals (proportional hazards)
+
+Each panel plots the scaled Schoenfeld residual for one model term against
+transformed survival time. A flat trend indicates the proportional hazards
+assumption holds.
+
+```{r}
+#| label: fig-sup-schoenfeld
+#| fig-width: 10
+#| fig-height: 8
+
+# Manually extract Schoenfeld residual data from cox.zph() objects
+# (ph_m = METABRIC f3, ph_t = TCGA g3 from 04-confirmatory-cox.R)
+extract_schoenfeld <- function(ph_obj, cohort_label) {
+  terms <- colnames(ph_obj$y)
+  pvals <- ph_obj$table[terms, "p"]
+  # Long-format data frame: one row per (term, time) residual point
+  do.call(rbind, lapply(seq_along(terms), function(i) {
+    data.frame(
+      cohort  = cohort_label,
+      term    = terms[i],
+      term_label = sprintf("%s (p=%.3f)", terms[i], pvals[i]),
+      time    = ph_obj$x,
+      resid   = ph_obj$y[, i],
+      stringsAsFactors = FALSE
+    )
+  }))
+}
+
+sch_df <- bind_rows(
+  extract_schoenfeld(ph_m, "METABRIC"),
+  extract_schoenfeld(ph_t, "TCGA")
+) %>%
+  mutate(cohort = factor(cohort, levels = c("METABRIC", "TCGA")))
+
+fig_sup_sch <- ggplot(sch_df, aes(x = time, y = resid, colour = cohort, fill = cohort)) +
+  geom_hline(yintercept = 0, linetype = "dashed",
+             colour = PALETTE$neutral, linewidth = 0.4) +
+  geom_point(alpha = 0.3, size = 0.6) +
+  geom_smooth(method = "loess", se = TRUE, alpha = 0.15, linewidth = 0.6) +
+  facet_grid(term ~ cohort, scales = "free", labeller = label_wrap_gen(width = 15)) +
+  scale_colour_cohort(guide = "none") +
+  scale_fill_cohort(guide = "none") +
+  labs(
+    x = "Transformed survival time",
+    y = "Scaled Schoenfeld residual"
+  ) +
+  theme_hds(base_size = 10)
+
+fig_sup_sch
+```
+
+### Martingale residuals (linearity)
+
+Martingale residuals from a null Cox model (confounders only, no cytotoxic)
+plotted against the raw cytotoxic score. A flat or straight-line trend
+means the linear assumption is appropriate.
+
+```{r}
+#| label: fig-sup-martingale
+#| fig-width: 10
+#| fig-height: 4
+
+# METABRIC: mart_resid_m from 04, surv_m_stg contains the raw cytotoxic column
+mart_df_m <- data.frame(
+  cohort    = "METABRIC",
+  cytotoxic = surv_m_stg$Cytotoxic_cells,
+  resid     = mart_resid_m
+)
+mart_df_t <- data.frame(
+  cohort    = "TCGA",
+  cytotoxic = surv_t_stg$Cytotoxic_cells,
+  resid     = mart_resid_t
+)
+mart_df <- bind_rows(mart_df_m, mart_df_t) %>%
+  mutate(cohort = factor(cohort, levels = c("METABRIC", "TCGA")))
+
+fig_sup_mart <- ggplot(mart_df, aes(x = cytotoxic, y = resid, colour = cohort, fill = cohort)) +
+  geom_hline(yintercept = 0, linetype = "dashed",
+             colour = PALETTE$neutral, linewidth = 0.4) +
+  geom_point(alpha = 0.3, size = 0.8) +
+  geom_smooth(method = "loess", alpha = 0.15, linewidth = 0.6) +
+  facet_wrap(~ cohort, scales = "free_x") +
+  scale_colour_cohort(guide = "none") +
+  scale_fill_cohort(guide = "none") +
+  labs(
+    x = "Cytotoxic score (raw)",
+    y = "Martingale residual"
+  ) +
+  theme_hds()
+
+fig_sup_mart
+```
+
+## PCA variance structure
+
+### Scree plot
+
+PC1 dominates the immune axis with ~38% variance, justifying the
+single-component focus in Figure 2.
+
+```{r}
+#| label: fig-sup-scree
+#| fig-width: 6
+#| fig-height: 4
+
+# pca_m comes from 03-pca-cytotoxic.R
+scree_df <- data.frame(
+  pc       = factor(paste0("PC", seq_along(summary(pca_m)$importance[2, ])),
+                    levels = paste0("PC", seq_along(summary(pca_m)$importance[2, ]))),
+  variance = summary(pca_m)$importance[2, ] * 100
+)
+
+fig_sup_scree <- ggplot(scree_df, aes(x = pc, y = variance, group = 1)) +
+  geom_hline(
+    yintercept = 100 / nrow(scree_df),
+    linetype = "dashed", colour = PALETTE$neutral, linewidth = 0.4
+  ) +
+  geom_line(colour = PALETTE$metabric, linewidth = 0.6) +
+  geom_point(colour = PALETTE$metabric, size = 2.5) +
+  labs(
+    x = NULL,
+    y = "Variance explained (%)",
+    caption = "Dashed line: equal variance baseline (100% / 14 PCs)"
+  ) +
+  theme_hds() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+fig_sup_scree
+```
 
 # References
 
