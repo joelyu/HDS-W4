@@ -30,6 +30,7 @@ if (!exists("scores_ispy2")) {
 message(sprintf("=== I-SPY2 immune scores: %d patients ===", nrow(scores_ispy2)))
 
 pd_all <- read.csv(file.path(proc_dir, "ispy2_clinical.csv"))
+pd_all$patient_id <- as.character(pd_all$patient_id)
 
 merged <- inner_join(scores_ispy2, pd_all, by = "patient_id")
 
