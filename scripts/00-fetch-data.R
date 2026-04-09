@@ -428,6 +428,31 @@ if (!file.exists(ispy_expr_file)) {
   .log <- c(.log, "[ispy2] Using cached ispy2_expression.csv")
 }
 
+# ---- I-SPY2 clinical/phenotype (from GEO series matrix) ---------------------
+ispy_clin_file <- file.path(proc_dir, "ispy2_clinical.csv")
+
+if (!file.exists(ispy_clin_file)) {
+  .log <- c(.log, "[ispy2] Extracting clinical data from GEO series matrix...")
+
+  raw_dir <- file.path("data", "raw")
+  dir.create(raw_dir, showWarnings = FALSE, recursive = TRUE)
+
+  gse <- getGEO("GSE194040", destdir = raw_dir, GSEMatrix = TRUE)
+  pd_all <- bind_rows(pData(gse[[1]]), pData(gse[[2]])) %>%
+    transmute(
+      patient_id = `patient id:ch1`,
+      arm        = `arm:ch1`,
+      pcr        = as.integer(`pcr:ch1`),
+      hr         = as.integer(`hr:ch1`),
+      her2       = as.integer(`her2:ch1`)
+    )
+
+  write.csv(pd_all, ispy_clin_file, row.names = FALSE)
+  .log <- c(.log, sprintf("  ispy2_clinical.csv: %d patients", nrow(pd_all)))
+} else {
+  .log <- c(.log, "[ispy2] Using cached ispy2_clinical.csv")
+}
+
 # =============================================================================
 # 4. Three-way gene harmonization
 # =============================================================================

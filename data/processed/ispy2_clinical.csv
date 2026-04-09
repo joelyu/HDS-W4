@@ -1,0 +1,989 @@
+"patient_id","arm","pcr","hr","her2"
+"100899","Paclitaxel + Ganitumab",0,0,0
+"102011","Paclitaxel + Ganetespib",1,1,0
+"102212","Paclitaxel + MK-2206",0,0,0
+"103693","Paclitaxel + Pembrolizumab",0,1,0
+"103939","Paclitaxel",0,1,0
+"104268","Paclitaxel",0,0,0
+"104384","Paclitaxel + Pembrolizumab",0,1,0
+"105286","Paclitaxel + Ganitumab",0,1,0
+"105513","Paclitaxel + AMG 386",1,1,0
+"109623","Paclitaxel + Ganetespib",0,1,0
+"109874","Paclitaxel + AMG 386",1,0,0
+"111004","Paclitaxel + Pembrolizumab",0,1,0
+"111344","Paclitaxel + AMG 386",0,1,0
+"111646","Paclitaxel + Ganetespib",0,1,0
+"114087","Paclitaxel + Pembrolizumab",0,1,0
+"115638","Paclitaxel + Ganitumab",0,0,0
+"115987","Paclitaxel + Ganitumab",0,0,0
+"116165","Paclitaxel + Pembrolizumab",0,1,0
+"116603","Paclitaxel",0,0,0
+"117707","Paclitaxel + Ganetespib",1,0,0
+"118307","Paclitaxel + AMG 386",0,0,0
+"119928","Paclitaxel + Ganetespib",0,0,0
+"120422","Paclitaxel + Ganitumab",1,1,0
+"122287","T-DM1 + Pertuzumab",1,1,1
+"122579","Paclitaxel",0,1,0
+"123660","Paclitaxel + Trastuzumab",0,0,1
+"125130","T-DM1 + Pertuzumab",1,0,1
+"125418","Paclitaxel + Ganetespib",0,1,0
+"127791","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"128051","T-DM1 + Pertuzumab",0,1,1
+"128675","Paclitaxel",1,1,0
+"130580","Paclitaxel + Ganitumab",1,0,0
+"130892","Paclitaxel + MK-2206",1,1,0
+"131595","Paclitaxel + AMG 386",0,1,0
+"131961","T-DM1 + Pertuzumab",1,1,1
+"132463","Paclitaxel + MK-2206 + Trastuzumab",1,1,1
+"133650","Paclitaxel + Ganetespib",0,1,0
+"136536","Paclitaxel",1,0,0
+"138027","Paclitaxel + Ganitumab",0,0,0
+"138425","T-DM1 + Pertuzumab",1,0,1
+"139973","Paclitaxel",0,1,0
+"142688","Paclitaxel",0,0,0
+"144302","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"145777","Paclitaxel + Ganitumab",0,1,0
+"146033","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"146987","Paclitaxel + AMG 386",0,1,0
+"147139","Paclitaxel + Pembrolizumab",1,0,0
+"148357","Paclitaxel + Ganitumab",0,1,0
+"149654","Paclitaxel + Pembrolizumab",0,1,0
+"150547","Paclitaxel + Ganetespib",0,1,0
+"151980","Paclitaxel + Ganetespib",1,1,0
+"152090","Paclitaxel",1,1,0
+"152197","Paclitaxel + Pembrolizumab",1,0,0
+"153327","Paclitaxel + Pembrolizumab",1,0,0
+"156163","Paclitaxel + AMG 386",0,1,0
+"157270","Paclitaxel + AMG 386 + Trastuzumab",0,1,1
+"159284","Paclitaxel",0,0,0
+"162562","Paclitaxel + Trastuzumab",1,0,1
+"164468","Paclitaxel + Ganetespib",0,0,0
+"165925","Paclitaxel + Ganitumab",0,0,0
+"167271","T-DM1 + Pertuzumab",0,1,1
+"168044","Paclitaxel + Pembrolizumab",0,1,0
+"169918","Paclitaxel + AMG 386",0,1,0
+"172168","Paclitaxel",0,0,0
+"172366","Paclitaxel + Ganitumab",1,0,0
+"174904","Paclitaxel + AMG 386",0,1,0
+"177795","Paclitaxel + Pembrolizumab",1,0,0
+"179369","Paclitaxel + MK-2206",0,1,0
+"179568","Paclitaxel + AMG 386",0,1,0
+"180663","Paclitaxel + MK-2206",0,1,0
+"181442","Paclitaxel",0,0,0
+"182346","Paclitaxel + Ganitumab",0,1,0
+"188700","Paclitaxel + Ganitumab",1,0,0
+"194024","Paclitaxel + Pembrolizumab",1,1,0
+"196024","Paclitaxel + Ganetespib",0,0,0
+"196064","Paclitaxel + AMG 386",1,1,0
+"199115","Paclitaxel + AMG 386",0,1,0
+"199960","Paclitaxel + AMG 386",0,0,0
+"200222","Paclitaxel + MK-2206",0,1,0
+"201831","Paclitaxel + AMG 386",1,0,0
+"202535","Paclitaxel + AMG 386 + Trastuzumab",0,1,1
+"203060","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"204939","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"208303","Paclitaxel + Ganetespib",1,0,0
+"208650","T-DM1 + Pertuzumab",0,1,1
+"209397","Paclitaxel + Pembrolizumab",0,1,0
+"209967","Paclitaxel + Ganitumab",0,1,0
+"212307","Paclitaxel + Ganitumab",0,1,0
+"213328","Paclitaxel",1,0,0
+"213672","Paclitaxel + Ganetespib",0,1,0
+"213913","T-DM1 + Pertuzumab",1,0,1
+"215932","Paclitaxel + AMG 386 + Trastuzumab",0,0,1
+"218249","Paclitaxel",0,1,0
+"218503","Paclitaxel + MK-2206",0,1,0
+"219545","Paclitaxel",0,0,0
+"220471","Paclitaxel + Trastuzumab",0,0,1
+"220925","T-DM1 + Pertuzumab",0,0,1
+"221375","Paclitaxel + Ganetespib",0,1,0
+"221686","Paclitaxel + Ganitumab",1,0,0
+"223030","Paclitaxel + AMG 386",0,1,0
+"227055","Paclitaxel + AMG 386 + Trastuzumab",0,1,1
+"228192","Paclitaxel + AMG-386",0,0,0
+"229328","Paclitaxel + Ganitumab",0,1,0
+"231633","Paclitaxel + Pembrolizumab",1,0,0
+"233191","Paclitaxel",0,0,0
+"235995","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"236470","Paclitaxel + Ganetespib",1,0,0
+"237158","Paclitaxel + AMG 386",1,1,0
+"239910","Paclitaxel + Ganitumab",0,0,0
+"240035","Paclitaxel + Ganetespib",0,1,0
+"240432","Paclitaxel",0,1,0
+"240957","Paclitaxel + AMG 386",0,1,0
+"241705","Paclitaxel + Ganitumab",0,1,0
+"241998","Paclitaxel",0,1,0
+"242370","Paclitaxel + Pembrolizumab",1,1,0
+"247641","Paclitaxel",0,0,0
+"250274","T-DM1 + Pertuzumab",0,1,1
+"252748","Paclitaxel",1,0,0
+"253531","T-DM1 + Pertuzumab",1,1,1
+"254060","Paclitaxel + AMG 386",1,0,0
+"254273","T-DM1 + Pertuzumab",0,1,1
+"255577","Paclitaxel",0,0,0
+"257735","Paclitaxel",0,0,0
+"259899","Paclitaxel",0,0,0
+"261304","Paclitaxel + Ganitumab",0,1,0
+"263143","Paclitaxel + MK-2206 + Trastuzumab",0,0,1
+"264305","Paclitaxel + Ganitumab",1,0,0
+"266509","Paclitaxel + AMG 386",1,0,0
+"266840","Paclitaxel + Trastuzumab",0,1,1
+"268937","T-DM1 + Pertuzumab",1,1,1
+"269899","Paclitaxel + Ganetespib",1,1,0
+"273691","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"275034","Paclitaxel + AMG 386 + Trastuzumab",1,1,1
+"275626","Paclitaxel + AMG 386",1,0,0
+"277888","Paclitaxel + Ganitumab",1,1,0
+"279902","Paclitaxel + Ganetespib",1,1,0
+"280375","Paclitaxel + Ganitumab",0,0,0
+"282777","Paclitaxel + Ganetespib",0,1,0
+"283070","Paclitaxel + AMG 386",0,0,0
+"284443","Paclitaxel + AMG 386 + Trastuzumab",0,1,1
+"285339","Paclitaxel + Pertuzumab + Trastuzumab",1,0,1
+"287961","Paclitaxel + MK-2206 + Trastuzumab",1,1,1
+"289107","Paclitaxel + Pembrolizumab",1,0,0
+"289420","Paclitaxel + Ganitumab",0,1,0
+"290413","Paclitaxel + AMG 386 + Trastuzumab",0,1,1
+"293142","Paclitaxel",0,1,0
+"294265","Paclitaxel + MK-2206",1,0,0
+"294739","Paclitaxel",0,1,0
+"296123","Paclitaxel + Ganitumab",1,0,0
+"296841","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"299840","Paclitaxel",0,0,0
+"299962","Paclitaxel + Ganitumab",0,0,0
+"300724","Paclitaxel",0,1,0
+"301289","Paclitaxel + Pembrolizumab",0,1,0
+"301665","Paclitaxel + AMG 386 + Trastuzumab",0,1,1
+"301968","Paclitaxel + AMG 386",0,1,0
+"303685","Paclitaxel + Pembrolizumab",1,1,0
+"306401","Paclitaxel + AMG 386",1,1,0
+"309830","Paclitaxel + MK-2206",0,0,0
+"311316","T-DM1 + Pertuzumab",0,1,1
+"311455","Paclitaxel",0,1,0
+"313243","Paclitaxel",1,1,0
+"313672","Paclitaxel + Ganetespib",0,1,0
+"317131","Paclitaxel + Ganitumab",0,1,0
+"317402","Paclitaxel + MK-2206",0,1,0
+"317641","Paclitaxel + MK-2206",1,0,0
+"318293","Paclitaxel + AMG 386",0,1,0
+"318407","Paclitaxel + Ganitumab",0,0,0
+"319324","Paclitaxel + MK-2206 + Trastuzumab",0,1,1
+"320538","Paclitaxel",0,0,0
+"323721","Paclitaxel + MK-2206",0,1,0
+"324021","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"326202","Paclitaxel + Pembrolizumab",0,1,0
+"326433","Paclitaxel + AMG 386",1,0,0
+"327917","Paclitaxel + Ganitumab",0,0,0
+"328160","Paclitaxel",0,1,0
+"329076","Paclitaxel + AMG 386",0,1,0
+"329941","T-DM1 + Pertuzumab",1,1,1
+"330134","Paclitaxel + Ganitumab",0,1,0
+"332655","Paclitaxel + MK-2206",1,0,0
+"333145","Paclitaxel + Pembrolizumab",1,1,0
+"335536","Paclitaxel + AMG 386",0,1,0
+"341238","Paclitaxel + Pembrolizumab",0,1,0
+"342142","Paclitaxel + Ganetespib",1,0,0
+"342959","Paclitaxel + MK-2206",1,0,0
+"342996","Paclitaxel",0,1,0
+"343898","Paclitaxel + MK-2206",0,0,0
+"345460","Paclitaxel + Ganitumab",0,1,0
+"345483","Paclitaxel + Ganitumab",0,0,0
+"345907","Paclitaxel + MK-2206",0,0,0
+"347516","Paclitaxel + Pembrolizumab",0,0,0
+"349330","Paclitaxel + AMG 386",1,0,0
+"353318","Paclitaxel",0,0,0
+"355292","Paclitaxel + Ganetespib",0,1,0
+"355942","Paclitaxel",0,1,0
+"356399","Paclitaxel",0,1,0
+"356431","T-DM1 + Pertuzumab",1,0,1
+"356684","Paclitaxel + AMG 386 + Trastuzumab",0,1,1
+"357034","Paclitaxel + Ganetespib",0,1,0
+"361701","Paclitaxel + MK-2206",0,1,0
+"362150","Paclitaxel + Ganitumab",0,1,0
+"363669","Paclitaxel",0,1,0
+"366120","T-DM1 + Pertuzumab",0,1,1
+"369040","Paclitaxel",0,1,0
+"371528","Paclitaxel + Pembrolizumab",0,1,0
+"375342","Paclitaxel + Ganitumab",0,0,0
+"375954","Paclitaxel + MK-2206 + Trastuzumab",0,0,1
+"376676","Paclitaxel + Ganitumab",0,0,0
+"377460","Paclitaxel + Pertuzumab + Trastuzumab",1,0,1
+"378885","Paclitaxel + AMG 386",0,1,0
+"380972","Paclitaxel + Ganetespib",0,1,0
+"383456","Paclitaxel + AMG 386",1,1,0
+"384830","Paclitaxel + MK-2206 + Trastuzumab",0,1,1
+"391942","Paclitaxel + Pembrolizumab",1,0,0
+"395249","Paclitaxel + Ganetespib",0,0,0
+"396723","T-DM1 + Pertuzumab",0,1,1
+"397505","T-DM1 + Pertuzumab",1,1,1
+"399478","Paclitaxel + AMG 386",1,0,0
+"401215","Paclitaxel + Ganetespib",0,1,0
+"402384","Paclitaxel + MK-2206",0,0,0
+"407539","Paclitaxel + Ganitumab",0,1,0
+"408692","Paclitaxel",1,0,0
+"409288","Paclitaxel",0,0,0
+"410083","T-DM1 + Pertuzumab",1,0,1
+"411008","Paclitaxel + AMG 386",0,0,0
+"411806","Paclitaxel + Ganetespib",0,1,0
+"411950","Paclitaxel + Ganitumab",0,1,0
+"412772","Paclitaxel + Ganitumab",0,0,0
+"413211","T-DM1 + Pertuzumab",0,1,1
+"413961","Paclitaxel + MK-2206",0,0,0
+"414256","Paclitaxel + Ganetespib",0,1,0
+"414844","Paclitaxel",0,1,0
+"414971","Paclitaxel + MK-2206",1,0,0
+"416434","Paclitaxel + MK-2206 + Trastuzumab",1,0,1
+"417474","Paclitaxel + Ganitumab",1,0,0
+"418593","Paclitaxel",0,1,0
+"419590","Paclitaxel + Ganetespib",0,0,0
+"421829","Paclitaxel",0,0,0
+"421917","Paclitaxel",0,0,0
+"422454","Paclitaxel + MK-2206",0,1,0
+"423979","Paclitaxel",0,1,0
+"424541","Paclitaxel",0,1,0
+"425173","Paclitaxel + Pembrolizumab",1,1,0
+"429220","Paclitaxel + Ganitumab",0,0,0
+"430441","Paclitaxel + Ganitumab",0,1,0
+"431061","Paclitaxel + Pembrolizumab",0,1,0
+"432114","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"435279","Paclitaxel + Ganitumab",0,1,0
+"436371","Paclitaxel",0,1,0
+"437162","T-DM1 + Pertuzumab",0,1,1
+"439489","Paclitaxel + Ganetespib",0,1,0
+"442669","Paclitaxel + Ganetespib",0,0,0
+"442981","Paclitaxel + Pembrolizumab",1,1,0
+"446263","Paclitaxel + Pembrolizumab",1,1,0
+"452703","Paclitaxel + Ganetespib",0,1,0
+"453596","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"454808","Paclitaxel + Ganitumab",0,0,0
+"455828","Paclitaxel",1,1,0
+"456432","Paclitaxel + Ganetespib",0,0,0
+"456506","Paclitaxel + Pembrolizumab",0,1,0
+"458196","Paclitaxel",0,1,0
+"459311","Paclitaxel + Ganetespib",0,1,0
+"460642","Paclitaxel + Ganitumab",0,1,0
+"460812","Paclitaxel + Ganetespib",0,1,0
+"462581","Paclitaxel + Ganetespib",0,0,0
+"462582","Paclitaxel",0,1,0
+"462605","Paclitaxel + Pertuzumab + Trastuzumab",1,0,1
+"464547","T-DM1 + Pertuzumab",1,1,1
+"465008","Paclitaxel + Ganitumab",0,1,0
+"466267","Paclitaxel + Ganetespib",1,0,0
+"467622","Paclitaxel + Ganitumab",0,1,0
+"467686","Paclitaxel + Ganitumab",1,1,0
+"472799","Paclitaxel + Pertuzumab + Trastuzumab",1,0,1
+"473365","Paclitaxel + Pembrolizumab",0,1,0
+"473468","Paclitaxel + Ganetespib",0,0,0
+"473505","Paclitaxel + Pembrolizumab",0,1,0
+"474874","Paclitaxel + Pertuzumab + Trastuzumab",1,0,1
+"477994","Paclitaxel + MK-2206 + Trastuzumab",1,1,1
+"478055","Paclitaxel",0,1,0
+"478655","Paclitaxel + Pembrolizumab",1,0,0
+"483667","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"483910","Paclitaxel + Pembrolizumab",0,0,0
+"484894","Paclitaxel",0,1,0
+"485637","Paclitaxel + Pembrolizumab",0,0,0
+"489194","Paclitaxel + Pembrolizumab",1,1,0
+"490023","Paclitaxel + MK-2206 + Trastuzumab",1,0,1
+"490805","T-DM1 + Pertuzumab",1,1,1
+"491779","T-DM1 + Pertuzumab",1,1,1
+"492612","Paclitaxel",0,0,0
+"493472","Paclitaxel + Ganetespib",0,1,0
+"493519","Paclitaxel",0,1,0
+"493775","Paclitaxel + Ganetespib",1,0,0
+"494022","T-DM1 + Pertuzumab",0,0,1
+"494296","Paclitaxel + Pembrolizumab",0,1,0
+"494946","Paclitaxel + Pembrolizumab",1,0,0
+"497010","Paclitaxel + Pembrolizumab",1,0,0
+"498024","Paclitaxel + Ganetespib",0,0,0
+"498985","Paclitaxel + AMG 386 + Trastuzumab",0,1,1
+"500826","Paclitaxel + Pembrolizumab",0,1,0
+"501303","Paclitaxel + Trastuzumab",1,0,1
+"502486","Paclitaxel",0,0,0
+"503034","Paclitaxel + Pertuzumab + Trastuzumab",0,0,1
+"504838","Paclitaxel",0,0,0
+"506623","Paclitaxel + MK-2206",0,0,0
+"507249","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"509012","Paclitaxel + Ganitumab",1,0,0
+"510543","Paclitaxel + Ganetespib",0,1,0
+"515281","Paclitaxel + Ganitumab",0,1,0
+"515284","Paclitaxel + Ganetespib",0,0,0
+"516763","Paclitaxel + AMG 386 + Trastuzumab",1,0,1
+"516834","Paclitaxel + Ganitumab",0,1,0
+"517870","Paclitaxel",0,0,0
+"518000","Paclitaxel + MK-2206",0,0,0
+"518576","Paclitaxel + Ganetespib",1,0,0
+"520986","Paclitaxel + MK-2206",1,1,0
+"521860","Paclitaxel + AMG 386",0,0,0
+"522140","Paclitaxel",0,1,0
+"524170","Paclitaxel + Ganitumab",0,1,0
+"527581","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"528479","Paclitaxel + Ganetespib",0,0,0
+"528833","Paclitaxel + AMG 386 + Trastuzumab",1,1,1
+"530095","Paclitaxel + AMG 386",0,1,0
+"531988","Paclitaxel + Ganitumab",1,0,0
+"532183","Paclitaxel",0,0,0
+"535415","Paclitaxel + MK-2206 + Trastuzumab",1,0,1
+"535569","T-DM1 + Pertuzumab",0,0,1
+"535779","Paclitaxel + Ganitumab",0,0,0
+"536253","T-DM1 + Pertuzumab",1,1,1
+"539876","Paclitaxel + Ganetespib",0,1,0
+"539904","Paclitaxel + Trastuzumab",0,1,1
+"542392","Paclitaxel + Ganitumab",0,0,0
+"543795","Paclitaxel + Pembrolizumab",0,1,0
+"547405","Paclitaxel + MK-2206",0,0,0
+"547892","Paclitaxel + Ganitumab",0,1,0
+"550157","Paclitaxel",1,0,0
+"550421","Paclitaxel + Ganetespib",0,0,0
+"551795","Paclitaxel + Pertuzumab + Trastuzumab",1,0,1
+"552549","Paclitaxel + AMG 386",0,1,0
+"553012","Paclitaxel + Pembrolizumab",0,1,0
+"554577","Paclitaxel + Ganetespib",0,1,0
+"555214","Paclitaxel + AMG 386 + Trastuzumab",1,0,1
+"559021","Paclitaxel + Ganitumab",1,1,0
+"559263","Paclitaxel",0,0,0
+"563681","Paclitaxel + Ganitumab",0,1,0
+"564701","Paclitaxel + Ganitumab",0,0,0
+"567201","Paclitaxel + Ganetespib",1,0,0
+"567907","Paclitaxel + Ganitumab",0,1,0
+"568953","Paclitaxel + AMG 386",0,1,0
+"570685","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"570966","Paclitaxel + AMG 386 + Trastuzumab",0,1,1
+"571276","Paclitaxel + Ganetespib",0,0,0
+"571995","Paclitaxel + AMG 386",0,0,0
+"572016","Paclitaxel + Ganetespib",1,0,0
+"572793","Paclitaxel + MK-2206",0,0,0
+"573605","Paclitaxel + MK-2206",0,0,0
+"574091","Paclitaxel + Pembrolizumab",1,0,0
+"575457","Paclitaxel + Pertuzumab + Trastuzumab",1,0,1
+"580541","Paclitaxel",0,1,0
+"581180","Paclitaxel",0,0,0
+"584561","Paclitaxel + Pertuzumab + Trastuzumab",1,0,1
+"586091","Paclitaxel + Pembrolizumab",1,1,0
+"586207","Paclitaxel + AMG 386",1,0,0
+"587604","Paclitaxel",0,0,0
+"587691","T-DM1 + Pertuzumab",1,1,1
+"589502","Paclitaxel + Ganetespib",1,1,0
+"590299","Paclitaxel + AMG 386",0,0,0
+"591079","Paclitaxel + Ganetespib",1,0,0
+"591810","Paclitaxel + MK-2206",1,1,0
+"597873","Paclitaxel + Pembrolizumab",0,0,0
+"597907","Paclitaxel + AMG 386",0,1,0
+"598835","T-DM1 + Pertuzumab",0,0,1
+"601489","Paclitaxel + MK-2206 + Trastuzumab",0,0,1
+"602451","Paclitaxel + Ganetespib",0,1,0
+"604199","Paclitaxel + MK-2206",0,1,0
+"604326","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"607843","Paclitaxel",0,1,0
+"609151","Paclitaxel + MK-2206 + Trastuzumab",1,0,1
+"609642","Paclitaxel + MK-2206 + Trastuzumab",1,0,1
+"613961","Paclitaxel + Ganetespib",1,0,0
+"614434","Paclitaxel + MK-2206 + Trastuzumab",1,1,1
+"616994","Paclitaxel",0,1,0
+"618240","Paclitaxel + AMG 386",0,0,0
+"618717","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"618860","Paclitaxel + Ganitumab",0,1,0
+"621179","Paclitaxel + AMG 386",0,1,0
+"622315","Paclitaxel + AMG 386",0,0,0
+"622688","Paclitaxel + Pembrolizumab",1,0,0
+"623569","Paclitaxel + Ganetespib",1,0,0
+"624777","T-DM1 + Pertuzumab",0,1,1
+"625854","Paclitaxel + Pembrolizumab",1,0,0
+"628788","Paclitaxel + Ganitumab",0,0,0
+"628823","Paclitaxel + Ganitumab",0,0,0
+"629371","Paclitaxel + MK-2206 + Trastuzumab",1,0,1
+"629606","Paclitaxel + Ganitumab",0,0,0
+"631299","Paclitaxel + Ganetespib",0,0,0
+"631337","Paclitaxel",0,1,0
+"635632","Paclitaxel + MK-2206 + Trastuzumab",1,0,1
+"636424","Paclitaxel",0,0,0
+"637051","Paclitaxel + Ganetespib",0,0,0
+"637566","Paclitaxel + MK-2206",0,0,0
+"639663","Paclitaxel + MK-2206",0,0,0
+"640043","Paclitaxel + Pembrolizumab",0,1,0
+"641697","Paclitaxel + Ganetespib",0,1,0
+"641977","Paclitaxel + AMG 386",0,1,0
+"644186","Paclitaxel",0,1,0
+"644609","Paclitaxel + Pertuzumab + Trastuzumab",1,0,1
+"646600","Paclitaxel + Ganetespib",0,1,0
+"649198","Paclitaxel + Pertuzumab + Trastuzumab",0,0,1
+"651145","Paclitaxel + MK-2206",0,1,0
+"651401","Paclitaxel + Pembrolizumab",0,0,0
+"652480","Paclitaxel + AMG 386",0,0,0
+"653325","Paclitaxel + AMG 386",0,1,0
+"653927","Paclitaxel",1,0,0
+"654021","Paclitaxel",0,1,0
+"654064","Paclitaxel + MK-2206",0,1,0
+"655128","Paclitaxel + AMG 386",0,1,0
+"655795","Paclitaxel",1,1,0
+"658541","Paclitaxel",0,1,0
+"660534","Paclitaxel + Pembrolizumab",1,0,0
+"661730","Paclitaxel + AMG 386",1,0,0
+"663144","Paclitaxel + Ganitumab",0,1,0
+"663197","Paclitaxel + Pembrolizumab",0,0,0
+"664111","Paclitaxel + MK-2206",1,0,0
+"664658","Paclitaxel + Pembrolizumab",1,1,0
+"666147","Paclitaxel + Ganitumab",0,1,0
+"666715","Paclitaxel + Ganetespib",0,1,0
+"668752","Paclitaxel + Pembrolizumab",0,0,0
+"674897","Paclitaxel",0,0,0
+"676365","Paclitaxel + Ganetespib",0,0,0
+"676630","Paclitaxel + Ganitumab",1,0,0
+"677910","Paclitaxel + AMG 386",0,0,0
+"679787","Paclitaxel",0,0,0
+"683173","Paclitaxel + Pembrolizumab",1,1,0
+"683457","Paclitaxel + Ganitumab",0,0,0
+"683896","Paclitaxel + AMG 386",0,1,0
+"685182","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"685795","Paclitaxel + AMG 386 + Trastuzumab",0,1,1
+"687288","T-DM1 + Pertuzumab",1,0,1
+"687733","Paclitaxel + Ganetespib",0,1,0
+"688291","Paclitaxel + AMG 386",0,1,0
+"688955","Paclitaxel",0,1,0
+"689076","Paclitaxel",0,1,0
+"689188","Paclitaxel + Ganetespib",1,1,0
+"689452","Paclitaxel",0,0,0
+"689480","Paclitaxel + AMG 386",0,1,0
+"690089","Paclitaxel + AMG 386",0,0,0
+"690410","Paclitaxel + Ganetespib",0,1,0
+"691753","Paclitaxel + Ganitumab",0,1,0
+"692885","Paclitaxel + Pembrolizumab",0,0,0
+"695521","Paclitaxel + AMG 386",0,1,0
+"700549","Paclitaxel + MK-2206",0,1,0
+"701790","Paclitaxel + Pembrolizumab",0,1,0
+"703401","Paclitaxel",0,1,0
+"703455","Paclitaxel + Ganetespib",0,0,0
+"705381","T-DM1 + Pertuzumab",1,1,1
+"706169","Paclitaxel",0,0,0
+"706418","T-DM1 + Pertuzumab",1,0,1
+"706639","Paclitaxel",0,0,0
+"711476","Paclitaxel",1,1,0
+"712276","Paclitaxel + MK-2206",1,1,0
+"712785","Paclitaxel",0,0,0
+"712917","Paclitaxel + Ganetespib",1,0,0
+"719713","Paclitaxel + Ganetespib",0,1,0
+"721099","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"724293","T-DM1 + Pertuzumab",1,1,1
+"724384","Paclitaxel",0,1,0
+"726940","Paclitaxel",0,0,0
+"727255","T-DM1 + Pertuzumab",0,0,1
+"727804","Paclitaxel + MK-2206",1,0,0
+"728149","T-DM1 + Pertuzumab",0,1,1
+"728287","Paclitaxel + AMG 386 + Trastuzumab",1,1,1
+"729732","Paclitaxel + MK-2206",0,1,0
+"732137","Paclitaxel + MK-2206",0,0,0
+"733276","Paclitaxel + Ganetespib",0,0,0
+"734997","Paclitaxel",0,1,0
+"735673","Paclitaxel",0,1,0
+"736721","Paclitaxel + AMG 386",0,1,0
+"738041","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"741535","Paclitaxel",0,1,0
+"745633","Paclitaxel + Ganitumab",0,1,0
+"748583","Paclitaxel + MK-2206",0,1,0
+"748611","Paclitaxel",1,1,0
+"752372","Paclitaxel",0,1,0
+"752469","Paclitaxel",0,0,0
+"753109","Paclitaxel + MK-2206",1,0,0
+"755914","Paclitaxel + MK-2206",1,0,0
+"759418","Paclitaxel + Ganetespib",0,1,0
+"760011","T-DM1 + Pertuzumab",1,1,1
+"760901","Paclitaxel + Ganitumab",1,0,0
+"765773","Paclitaxel + Ganetespib",1,0,0
+"767081","T-DM1 + Pertuzumab",1,0,1
+"767934","Paclitaxel",1,0,0
+"768214","Paclitaxel + AMG 386",0,0,0
+"769972","Paclitaxel + Ganitumab",0,1,0
+"771151","Paclitaxel + AMG 386",1,0,0
+"774840","Paclitaxel + Ganitumab",1,0,0
+"778527","Paclitaxel + MK-2206",1,0,0
+"779739","Paclitaxel + MK-2206 + Trastuzumab",1,1,1
+"780272","Paclitaxel + Ganitumab",0,0,0
+"781642","Paclitaxel + Ganetespib",0,0,0
+"783427","Paclitaxel",1,1,0
+"783764","Paclitaxel + Ganitumab",0,1,0
+"783771","Paclitaxel",0,1,0
+"786003","T-DM1 + Pertuzumab",1,1,1
+"786480","Paclitaxel + Ganetespib",0,1,0
+"786753","Paclitaxel + MK-2206 + Trastuzumab",0,0,1
+"787415","Paclitaxel + AMG 386",0,0,0
+"788149","Paclitaxel + AMG 386 + Trastuzumab",1,1,1
+"790397","T-DM1 + Pertuzumab",1,1,1
+"791321","Paclitaxel + MK-2206",0,0,0
+"792181","Paclitaxel + AMG 386",1,0,0
+"792412","Paclitaxel + Pembrolizumab",0,0,0
+"793155","Paclitaxel + MK-2206",0,1,0
+"793684","Paclitaxel + Ganetespib",0,0,0
+"794128","Paclitaxel + Ganitumab",0,0,0
+"795996","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"796558","Paclitaxel",0,0,0
+"797499","T-DM1 + Pertuzumab",1,0,1
+"797639","Paclitaxel + MK-2206",0,1,0
+"798604","Paclitaxel + Ganitumab",1,0,0
+"799149","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"800447","Paclitaxel + Ganitumab",1,0,0
+"801641","Paclitaxel + MK-2206",0,0,0
+"802105","Paclitaxel + Pembrolizumab",0,1,0
+"802308","Paclitaxel + Ganitumab",0,0,0
+"803677","Paclitaxel + MK-2206",0,0,0
+"804233","Paclitaxel + Pembrolizumab",1,0,0
+"804979","Paclitaxel + Ganitumab",0,1,0
+"805136","Paclitaxel + AMG 386 + Trastuzumab",0,0,1
+"808714","Paclitaxel",0,0,0
+"810965","Paclitaxel + Ganetespib",1,0,0
+"815493","Paclitaxel + Pembrolizumab",1,0,0
+"820348","Paclitaxel",0,1,0
+"820807","Paclitaxel + Ganitumab",1,1,0
+"823618","Paclitaxel + AMG 386",0,1,0
+"824234","Paclitaxel + Trastuzumab",1,1,1
+"824350","T-DM1 + Pertuzumab",1,0,1
+"824512","Paclitaxel + Ganetespib",0,1,0
+"825363","Paclitaxel + Pertuzumab + Trastuzumab",1,0,1
+"829491","Paclitaxel + AMG 386",0,0,0
+"830486","Paclitaxel + Ganetespib",0,0,0
+"830958","Paclitaxel + Pembrolizumab",0,1,0
+"831702","T-DM1 + Pertuzumab",0,1,1
+"831848","T-DM1 + Pertuzumab",1,0,1
+"832056","Paclitaxel + Pembrolizumab",0,0,0
+"834418","Paclitaxel",0,1,0
+"839274","Paclitaxel + MK-2206 + Trastuzumab",0,1,1
+"841336","Paclitaxel",0,1,0
+"843554","Paclitaxel",0,0,0
+"845079","T-DM1 + Pertuzumab",1,1,1
+"845147","Paclitaxel + MK-2206",0,1,0
+"845783","Paclitaxel + AMG 386",1,1,0
+"846156","Paclitaxel + Ganetespib",0,0,0
+"847272","Paclitaxel",0,0,0
+"847753","Paclitaxel + Pembrolizumab",1,1,0
+"848003","Paclitaxel + AMG 386",0,0,0
+"848371","Paclitaxel + Pembrolizumab",1,0,0
+"851223","Paclitaxel + AMG 386",0,1,0
+"851488","Paclitaxel + Ganitumab",0,1,0
+"856159","Paclitaxel + Trastuzumab",0,1,1
+"857165","Paclitaxel + Pembrolizumab",0,1,0
+"860243","Paclitaxel + Ganetespib",0,1,0
+"860901","Paclitaxel + AMG 386",1,0,0
+"861745","Paclitaxel + MK-2206",0,1,0
+"862244","Paclitaxel + Pertuzumab + Trastuzumab",0,0,1
+"863161","Paclitaxel + MK-2206 + Trastuzumab",1,0,1
+"865416","T-DM1 + Pertuzumab",0,1,1
+"866660","Paclitaxel",0,1,0
+"870077","Paclitaxel + Ganitumab",0,1,0
+"873686","Paclitaxel + Pembrolizumab",0,1,0
+"875089","Paclitaxel + Ganitumab",0,0,0
+"877463","Paclitaxel + Ganetespib",0,0,0
+"879224","Paclitaxel",0,0,0
+"882538","Paclitaxel + Ganitumab",1,0,0
+"882553","Paclitaxel + AMG 386",0,1,0
+"884011","Paclitaxel + Ganitumab",0,1,0
+"884266","Paclitaxel + Ganetespib",0,1,0
+"885871","Paclitaxel",0,0,0
+"887594","Paclitaxel + MK-2206",1,0,0
+"889721","T-DM1 + Pertuzumab",1,0,1
+"890372","Paclitaxel + Ganitumab",0,0,0
+"892390","Paclitaxel + Pembrolizumab",1,0,0
+"893874","Paclitaxel + Ganetespib",1,0,0
+"894673","Paclitaxel + MK-2206 + Trastuzumab",0,1,1
+"895653","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"896621","Paclitaxel",0,1,0
+"896852","T-DM1 + Pertuzumab",0,1,1
+"896939","Paclitaxel + Pembrolizumab",0,1,0
+"898618","Paclitaxel + Ganitumab",0,1,0
+"899381","Paclitaxel",1,1,0
+"899692","Paclitaxel",1,0,0
+"900959","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"901705","Paclitaxel",0,1,0
+"901807","Paclitaxel",0,0,0
+"905264","Paclitaxel + MK-2206 + Trastuzumab",0,0,1
+"906795","Paclitaxel + Trastuzumab",0,1,1
+"910188","Paclitaxel + Ganitumab",0,1,0
+"912836","Paclitaxel + Ganetespib",0,0,0
+"913527","Paclitaxel",0,0,0
+"914968","Paclitaxel + Ganetespib",0,0,0
+"916586","Paclitaxel + Ganetespib",0,1,0
+"917762","Paclitaxel + Ganitumab",0,1,0
+"918979","Paclitaxel + Ganitumab",0,0,0
+"922872","Paclitaxel",0,1,0
+"923968","Paclitaxel + AMG 386",1,1,0
+"924071","Paclitaxel + AMG 386",0,1,0
+"924868","Paclitaxel + Ganetespib",1,0,0
+"924895","Paclitaxel + Ganetespib",0,1,0
+"928170","Paclitaxel + Ganitumab",0,1,0
+"928446","Paclitaxel + Ganitumab",0,1,0
+"928815","Paclitaxel + AMG 386",0,0,0
+"929391","Paclitaxel",0,0,0
+"929980","Paclitaxel + MK-2206 + Trastuzumab",1,0,1
+"930903","Paclitaxel + Ganetespib",0,1,0
+"934906","Paclitaxel",0,0,0
+"935460","Paclitaxel",0,0,0
+"938719","Paclitaxel",0,1,0
+"940186","Paclitaxel + Ganetespib",1,1,0
+"941926","Paclitaxel",0,1,0
+"943633","Paclitaxel + AMG 386",0,0,0
+"943879","Paclitaxel + Ganetespib",1,0,0
+"947398","T-DM1 + Pertuzumab",1,1,1
+"949444","Paclitaxel + AMG 386",0,0,0
+"950131","Paclitaxel",1,1,0
+"950742","Paclitaxel + Ganitumab",0,1,0
+"953885","T-DM1 + Pertuzumab",0,1,1
+"955035","Paclitaxel + Ganitumab",0,0,0
+"960029","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"960490","Paclitaxel + Pembrolizumab",1,0,0
+"962153","Paclitaxel + AMG 386 + Trastuzumab",0,1,1
+"962664","Paclitaxel",1,0,0
+"963303","Paclitaxel",0,1,0
+"963604","Paclitaxel + AMG 386",0,1,0
+"965265","Paclitaxel + AMG 386",0,0,0
+"966016","Paclitaxel + Ganitumab",1,1,0
+"970839","Paclitaxel",0,1,0
+"971492","Paclitaxel + AMG 386",0,1,0
+"974181","Paclitaxel + AMG 386",1,0,0
+"981461","T-DM1 + Pertuzumab",0,1,1
+"981664","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"982086","Paclitaxel + Pertuzumab + Trastuzumab",1,0,1
+"982505","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"983841","Paclitaxel + Ganetespib",1,0,0
+"986734","Paclitaxel + Ganetespib",0,1,0
+"987728","Paclitaxel + Ganitumab",1,0,0
+"987914","Paclitaxel",0,0,0
+"987995","Paclitaxel + AMG 386",0,1,0
+"988665","Paclitaxel + Ganetespib",0,1,0
+"990443","Paclitaxel + Pembrolizumab",0,1,0
+"991818","Paclitaxel + Pertuzumab + Trastuzumab",1,1,1
+"992609","Paclitaxel + AMG 386",1,0,0
+"995480","Paclitaxel + Pertuzumab + Trastuzumab",0,1,1
+"999264","Paclitaxel + Pertuzumab + Trastuzumab",1,0,1
+"999733","Paclitaxel + MK-2206",0,1,0
+"107700","Paclitaxel + MK-2206 + Trastuzumab",0,1,1
+"108939","Paclitaxel + Neratinib",1,1,1
+"108969","Paclitaxel + Neratinib",1,0,1
+"109980","Paclitaxel + Neratinib",1,1,1
+"111038","Paclitaxel + AMG 386",0,0,0
+"111674","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"111881","Paclitaxel + Neratinib",1,1,1
+"112606","Paclitaxel + Trastuzumab",0,1,1
+"117424","Paclitaxel + Neratinib",1,0,0
+"120001","Paclitaxel + Neratinib",0,0,0
+"122795","Paclitaxel + Ganitumab",0,0,0
+"125385","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"127675","Paclitaxel + Neratinib",0,0,0
+"129837","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"129973","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"134526","Paclitaxel + Neratinib",1,0,0
+"139137","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"139771","Paclitaxel + Neratinib",1,0,0
+"141782","Paclitaxel + Trastuzumab",0,1,1
+"145513","Paclitaxel + MK-2206 + Trastuzumab",0,1,1
+"151230","Paclitaxel + Neratinib",0,1,1
+"151481","Paclitaxel",0,0,0
+"153880","Paclitaxel + Trastuzumab",0,1,1
+"154293","Paclitaxel + Neratinib",0,1,1
+"155171","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"157463","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"159352","Paclitaxel + MK-2206 + Trastuzumab",0,1,1
+"160120","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"166412","Paclitaxel + Trastuzumab",0,1,1
+"166782","Paclitaxel + Neratinib",0,1,1
+"169536","Paclitaxel + Neratinib",0,1,1
+"172283","Paclitaxel + Neratinib",0,0,0
+"174903","Paclitaxel + AMG 386",0,1,0
+"178649","Paclitaxel + Neratinib",1,0,0
+"178815","Paclitaxel + Neratinib",0,1,0
+"180027","Paclitaxel + AMG 386",1,0,0
+"181819","Paclitaxel",1,1,0
+"183831","Paclitaxel + MK-2206",1,1,0
+"188091","Paclitaxel + Neratinib",1,0,1
+"188511","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"190224","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"192548","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"197942","Paclitaxel",0,0,0
+"198891","Paclitaxel",0,1,0
+"201873","Paclitaxel + Neratinib",1,1,1
+"202539","Paclitaxel",1,1,0
+"202956","Paclitaxel + Neratinib",1,0,0
+"203254","Paclitaxel + MK-2206",0,0,0
+"208265","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"211408","Paclitaxel + Neratinib",1,0,1
+"220664","Paclitaxel + Neratinib",1,0,0
+"222135","Paclitaxel + AMG 386",0,1,0
+"223526","Paclitaxel + Neratinib",0,1,0
+"225836","Paclitaxel + Neratinib",0,0,0
+"227832","Paclitaxel + Neratinib",0,1,1
+"227881","Paclitaxel + Neratinib",1,1,1
+"228340","Paclitaxel + Neratinib",0,0,1
+"229144","Paclitaxel",0,1,0
+"229824","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"233832","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"233962","Paclitaxel + Neratinib",1,0,0
+"234272","Paclitaxel + Neratinib",0,1,1
+"234723","Paclitaxel + AMG 386",0,0,0
+"238790","Paclitaxel",0,0,0
+"239061","Paclitaxel + Ganitumab",0,0,0
+"243836","Paclitaxel + Neratinib",1,1,0
+"245655","Paclitaxel + Neratinib",0,0,0
+"246134","Paclitaxel + Trastuzumab",0,1,1
+"248255","Paclitaxel + Ganitumab",0,1,0
+"255078","Paclitaxel",0,0,0
+"255388","Paclitaxel + MK-2206 + Trastuzumab",1,0,1
+"255535","Paclitaxel + Neratinib",0,1,1
+"259206","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"262131","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"264678","Paclitaxel",0,1,0
+"267306","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"273745","Paclitaxel",0,1,0
+"277848","Paclitaxel + Neratinib",0,1,1
+"282082","Paclitaxel",1,0,0
+"282644","Paclitaxel + Neratinib",0,1,1
+"284355","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"284593","Paclitaxel + MK-2206",0,0,0
+"286984","Paclitaxel + MK-2206",0,1,0
+"287300","Paclitaxel + Neratinib",1,1,1
+"291515","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"294176","Paclitaxel + Neratinib",1,0,0
+"298101","Paclitaxel + MK-2206 + Trastuzumab",0,1,1
+"299364","Paclitaxel",0,0,0
+"303947","Paclitaxel + Neratinib",1,0,1
+"306127","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"307659","Paclitaxel + Neratinib",0,1,1
+"316996","Paclitaxel + Neratinib",0,0,1
+"318438","Paclitaxel",0,0,0
+"318569","Paclitaxel + Neratinib",0,1,1
+"327133","Paclitaxel",0,0,0
+"327142","Paclitaxel + Neratinib",0,1,0
+"331192","Paclitaxel + ABT 888 + Carboplatin",1,1,0
+"335091","Paclitaxel + Trastuzumab",1,1,1
+"340186","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"345574","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"348009","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"349225","Paclitaxel",0,0,0
+"349639","Paclitaxel + Neratinib",1,1,1
+"350331","Paclitaxel + Trastuzumab",0,0,1
+"357017","Paclitaxel",0,1,0
+"360937","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"362993","Paclitaxel",0,0,0
+"367682","Paclitaxel",0,0,0
+"373346","Paclitaxel + AMG 386",0,1,0
+"373672","Paclitaxel",0,0,0
+"374106","Paclitaxel + Neratinib",0,0,0
+"374121","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"375455","Paclitaxel + Trastuzumab",0,1,1
+"378401","Paclitaxel + AMG 386",1,0,0
+"380239","Paclitaxel + Neratinib",0,0,0
+"380769","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"382853","Paclitaxel + Trastuzumab",1,0,1
+"386664","Paclitaxel + AMG 386",0,1,0
+"388581","Paclitaxel + Neratinib",1,1,1
+"395076","Paclitaxel",1,0,0
+"395379","Paclitaxel",0,1,0
+"402265","Paclitaxel + Trastuzumab",0,1,1
+"405717","Paclitaxel",0,0,0
+"406190","Paclitaxel + Neratinib",0,0,0
+"411684","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"414286","Paclitaxel + MK-2206",0,1,0
+"415039","Paclitaxel + Neratinib",0,1,1
+"417654","Paclitaxel + Neratinib",0,1,0
+"420523","Paclitaxel + Neratinib",0,1,1
+"422013","Paclitaxel + Neratinib",0,1,1
+"422450","Paclitaxel + Neratinib",1,1,0
+"423619","Paclitaxel + Neratinib",1,0,0
+"426106","Paclitaxel + MK-2206",0,1,0
+"427321","Paclitaxel + ABT 888 + Carboplatin",1,1,0
+"433144","Paclitaxel",1,0,0
+"435313","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"437968","Paclitaxel + Neratinib",0,1,1
+"442637","Paclitaxel + Trastuzumab",0,0,1
+"443444","Paclitaxel + Neratinib",0,0,1
+"443708","Paclitaxel + Neratinib",0,0,0
+"451482","Paclitaxel + AMG 386",0,1,0
+"451816","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"460776","Paclitaxel",1,1,0
+"461824","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"477816","Paclitaxel",0,1,0
+"478484","Paclitaxel + Neratinib",0,0,0
+"479417","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"484867","Paclitaxel + Neratinib",0,1,1
+"489504","Paclitaxel",1,0,0
+"489973","Paclitaxel + AMG 386",0,0,0
+"491526","Paclitaxel",0,1,0
+"495440","Paclitaxel",0,1,0
+"496205","Paclitaxel + AMG 386",1,1,0
+"507198","Paclitaxel",0,0,0
+"511851","Paclitaxel + Ganitumab",0,1,0
+"515105","Paclitaxel + Neratinib",0,1,1
+"515141","Paclitaxel + AMG 386",1,0,0
+"515565","Paclitaxel",0,0,0
+"517446","Paclitaxel",0,1,0
+"519738","Paclitaxel + Neratinib",1,0,1
+"520258","Paclitaxel",0,1,0
+"520471","Paclitaxel + Ganitumab",1,1,0
+"527320","Paclitaxel",0,0,0
+"531672","Paclitaxel + AMG 386",0,1,0
+"539291","Paclitaxel + Neratinib",1,0,1
+"540539","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"541165","Paclitaxel + Neratinib",0,0,0
+"549172","Paclitaxel",0,0,0
+"552313","Paclitaxel + Neratinib",1,0,1
+"553141","Paclitaxel + ABT 888 + Carboplatin",1,1,0
+"563856","Paclitaxel + Neratinib",1,0,0
+"564234","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"566011","Paclitaxel + Neratinib",0,0,0
+"568331","Paclitaxel + AMG 386",0,0,0
+"570148","Paclitaxel + Neratinib",0,1,1
+"570380","Paclitaxel + Neratinib",0,0,0
+"572235","Paclitaxel + Neratinib",0,1,1
+"572444","Paclitaxel + Neratinib",0,1,0
+"572731","Paclitaxel + ABT 888 + Carboplatin",1,1,0
+"573586","Paclitaxel + Trastuzumab",0,1,1
+"573881","Paclitaxel + Neratinib",0,1,0
+"573919","Paclitaxel + MK-2206 + Trastuzumab",0,0,1
+"575372","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"578975","Paclitaxel + MK-2206",1,0,0
+"579881","Paclitaxel",0,1,0
+"580632","Paclitaxel + Ganitumab",0,1,0
+"581648","Paclitaxel",0,0,0
+"587388","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"590220","Paclitaxel + MK-2206",1,0,0
+"591180","Paclitaxel + Neratinib",0,0,0
+"592535","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"596079","Paclitaxel + Trastuzumab",1,0,1
+"596458","Paclitaxel + Neratinib",1,1,1
+"597253","Paclitaxel + AMG 386",0,1,0
+"598798","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"600536","Paclitaxel + AMG 386",0,0,0
+"602943","Paclitaxel",1,0,0
+"604380","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"605713","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"607047","Paclitaxel + AMG 386",1,1,0
+"611662","Paclitaxel + Neratinib",0,0,1
+"613188","Paclitaxel + AMG 386",0,0,0
+"614044","Paclitaxel",0,0,0
+"615873","Paclitaxel",1,0,0
+"622078","Paclitaxel + Neratinib",0,0,1
+"623086","Paclitaxel + Neratinib",0,1,0
+"625800","Paclitaxel + Neratinib",0,1,1
+"627118","Paclitaxel + Trastuzumab",0,0,1
+"627981","Paclitaxel",1,0,0
+"628692","Paclitaxel + Neratinib",0,1,0
+"629210","Paclitaxel + Neratinib",0,1,0
+"629606","Paclitaxel + Ganitumab",0,0,0
+"630758","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"632408","Paclitaxel + AMG 386",0,1,0
+"635862","Paclitaxel + AMG 386",0,0,0
+"637752","Paclitaxel + AMG 386",1,0,0
+"640463","Paclitaxel + ABT 888 + Carboplatin",1,1,0
+"640927","Paclitaxel + Neratinib",0,0,0
+"641246","Paclitaxel + Neratinib",1,1,1
+"646233","Paclitaxel + AMG 386",0,1,0
+"650589","Paclitaxel + AMG 386",0,0,0
+"651541","Paclitaxel + Neratinib",1,0,0
+"654956","Paclitaxel + Neratinib",0,0,1
+"655703","Paclitaxel + AMG 386",0,1,0
+"660915","Paclitaxel + Neratinib",0,1,0
+"663467","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"666450","Paclitaxel + Neratinib",0,1,1
+"672734","Paclitaxel + Ganitumab",0,1,0
+"676048","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"677915","Paclitaxel",0,1,0
+"680881","Paclitaxel + MK-2206",0,1,0
+"683374","Paclitaxel + Neratinib",0,1,1
+"685753","Paclitaxel + AMG 386",0,1,0
+"697098","Paclitaxel + Neratinib",1,0,0
+"697871","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"698094","Paclitaxel",0,1,0
+"706943","Paclitaxel + Neratinib",0,0,1
+"708387","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"709559","Paclitaxel",0,1,0
+"714205","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"720065","Paclitaxel + Trastuzumab",0,1,1
+"723918","Paclitaxel + Neratinib",1,1,1
+"725455","Paclitaxel + Trastuzumab",0,0,1
+"726091","Paclitaxel + Neratinib",1,0,0
+"726381","Paclitaxel + Trastuzumab",0,1,1
+"728182","Paclitaxel + AMG 386",0,1,0
+"728714","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"729270","Paclitaxel + Neratinib",1,0,1
+"733962","Paclitaxel + Neratinib",1,0,1
+"742477","Paclitaxel + Trastuzumab",0,1,1
+"746265","Paclitaxel + Neratinib",0,1,0
+"746731","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"749097","Paclitaxel",0,1,0
+"756412","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"765671","Paclitaxel + AMG 386",1,0,0
+"766301","Paclitaxel + AMG 386",0,1,0
+"766967","Paclitaxel + Ganitumab",1,1,0
+"771443","Paclitaxel + MK-2206 + Trastuzumab",0,1,1
+"771813","Paclitaxel",0,0,0
+"775346","Paclitaxel",0,1,0
+"778020","Paclitaxel + Neratinib",0,1,0
+"781335","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"782334","Paclitaxel",0,1,0
+"783578","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"789497","Paclitaxel + AMG 386",0,1,0
+"790070","Paclitaxel + Neratinib",0,1,1
+"790722","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"791944","Paclitaxel + Neratinib",0,1,1
+"794428","Paclitaxel",0,0,0
+"797427","Paclitaxel + Trastuzumab",0,1,1
+"800710","Paclitaxel",0,0,0
+"802778","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"803514","Paclitaxel",0,1,0
+"809037","Paclitaxel",0,1,0
+"809649","Paclitaxel + Trastuzumab",1,0,1
+"812089","Paclitaxel + Neratinib",0,0,0
+"814299","Paclitaxel + Neratinib",1,0,1
+"815421","Paclitaxel + Neratinib",0,1,1
+"819622","Paclitaxel",0,1,0
+"828199","Paclitaxel + Neratinib",0,1,0
+"833536","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"835137","Paclitaxel + MK-2206 + Trastuzumab",0,1,1
+"835658","Paclitaxel + Neratinib",1,1,0
+"836114","Paclitaxel + AMG 386",0,1,0
+"836983","Paclitaxel + Neratinib",1,1,1
+"840501","Paclitaxel + AMG 386",1,0,0
+"845663","Paclitaxel",0,1,0
+"849605","Paclitaxel + Neratinib",0,0,0
+"851180","Paclitaxel + Neratinib",0,1,1
+"859699","Paclitaxel + Trastuzumab",1,1,1
+"872188","Paclitaxel + Neratinib",1,0,1
+"876511","Paclitaxel + Neratinib",0,0,0
+"883696","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"883886","Paclitaxel + Neratinib",0,0,0
+"885590","Paclitaxel",0,1,0
+"889049","Paclitaxel + Trastuzumab",0,0,1
+"889225","Paclitaxel + AMG 386",0,1,0
+"890414","Paclitaxel",1,0,0
+"891645","Paclitaxel + Neratinib",0,0,1
+"894128","Paclitaxel + AMG 386",1,0,0
+"894491","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"903880","Paclitaxel + Neratinib",0,1,1
+"904269","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"906042","Paclitaxel",0,1,0
+"910706","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"913225","Paclitaxel + Neratinib",1,1,1
+"916645","Paclitaxel",1,1,0
+"920479","Paclitaxel + Neratinib",0,0,1
+"922433","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"924812","Paclitaxel + AMG 386",0,0,0
+"925691","Paclitaxel + Neratinib",0,0,1
+"930172","Paclitaxel + Neratinib",0,1,1
+"930853","Paclitaxel + AMG 386",1,1,0
+"932200","Paclitaxel",0,1,0
+"934459","Paclitaxel + ABT 888 + Carboplatin",0,0,0
+"941191","Paclitaxel + Neratinib",0,1,1
+"942017","Paclitaxel",0,1,0
+"944419","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"944536","Paclitaxel + Neratinib",1,0,1
+"946927","Paclitaxel + MK-2206 + Trastuzumab",1,0,1
+"953262","Paclitaxel + Neratinib",0,1,0
+"955953","Paclitaxel + MK-2206 + Trastuzumab",1,0,1
+"957408","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"959366","Paclitaxel + ABT 888 + Carboplatin",1,0,0
+"960963","Paclitaxel + MK-2206 + Trastuzumab",0,1,1
+"961350","Paclitaxel + Neratinib",1,0,1
+"962472","Paclitaxel + AMG 386",0,1,0
+"962827","Paclitaxel + Ganitumab",0,1,0
+"972307","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"973837","Paclitaxel + Ganitumab",0,1,0
+"974618","Paclitaxel + AMG 386",1,0,0
+"988443","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"994987","Paclitaxel + ABT 888 + Carboplatin",0,1,0
+"997702","Paclitaxel + ABT 888 + Carboplatin",1,0,0

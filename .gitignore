@@ -10,6 +10,9 @@ scripts/legacy/
 .RData
 .Ruserdata
 
+# Raw data cache (re-downloaded from APIs if missing)
+data/raw/
+
 # OS files
 .DS_Store
 Thumbs.db

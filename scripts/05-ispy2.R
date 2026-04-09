@@ -20,7 +20,6 @@
 # =============================================================================
 
 library(dplyr)
-library(GEOquery)
 
 if (!exists("proc_dir")) proc_dir <- file.path("data", "processed")
 
@@ -30,16 +29,7 @@ if (!exists("scores_ispy2")) {
 }
 message(sprintf("=== I-SPY2 immune scores: %d patients ===", nrow(scores_ispy2)))
 
-gse <- getGEO("GSE194040", destdir = "data/raw", GSEMatrix = TRUE)
-pd_all <- bind_rows(pData(gse[[1]]), pData(gse[[2]])) %>%
-  mutate(
-    patient_id = `patient id:ch1`,
-    arm = `arm:ch1`,
-    pcr = as.integer(`pcr:ch1`),
-    hr = as.integer(`hr:ch1`),
-    her2 = as.integer(`her2:ch1`)
-  ) %>%
-  select(patient_id, arm, pcr, hr, her2)
+pd_all <- read.csv(file.path(proc_dir, "ispy2_clinical.csv"))
 
 merged <- inner_join(scores_ispy2, pd_all, by = "patient_id")
 
