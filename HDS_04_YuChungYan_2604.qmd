@@ -121,6 +121,15 @@ Max 250 words. Include:
 - cBioPortal — API access for METABRIC and TCGA BRCA [@cerami2012cbioportal; @gao2013integrative; @debruijn2023analysis]
 - GEO — public archive hosting I-SPY2 (GSE194040) [@edgar2002geo; @clough2024geo]
 
+**Software**
+
+- R statistical computing environment [@r2026]
+- survival — Cox proportional-hazards and Kaplan–Meier estimation [@therneau2000survival]
+- ggplot2 — grammar-of-graphics visualisation [@wickham2016ggplot2]
+- tidyverse — data wrangling (dplyr, tidyr) [@wickham2019tidyverse]
+- cBioPortalData — Bioconductor client for cBioPortal API [@ramos2020cbioportaldata]
+- GEOquery — Bioconductor client for GEO [@davis2007geoquery]
+
 # Setup
 
 ```{r}
@@ -388,7 +397,7 @@ fig_1a <- ggplot(forest_data,
     legend.box = "vertical"
   )
 
-ggsave("fig_1a.svg", fig_1a, width = 7, height = 8, device = "svg")
+ggsave("poster/fig_1a.svg", fig_1a, width = 7, height = 8, device = "svg")
 fig_1a
 ```
 
@@ -455,7 +464,7 @@ fig_1b <- ggplot(loadings_clev_long, aes(x = loading, y = cell_type)) +
     legend.justification = "left"
   )
 
-ggsave("fig_1b.svg", fig_1b, width = 5, height = 6, device = "svg")
+ggsave("poster/fig_1b.svg", fig_1b, width = 5, height = 6, device = "svg")
 fig_1b
 ```
 
@@ -514,7 +523,7 @@ fig_1c <- ggplot(corr_long, aes(x = cell_a, y = cell_b, fill = r)) +
     panel.border = element_rect(colour = NA, fill = NA)
   )
 
-ggsave("fig_1c.svg", fig_1c, width = 7, height = 6, device = "svg")
+ggsave("poster/fig_1c.svg", fig_1c, width = 7, height = 6, device = "svg")
 fig_1c
 ```
 
@@ -568,7 +577,7 @@ fig_2a <- km_plot$plot +
     fill   = "none"
   )
 
-ggsave("fig_2a.svg", fig_2a, width = 6, height = 5, device = "svg")
+ggsave("poster/fig_2a.svg", fig_2a, width = 6, height = 5, device = "svg")
 fig_2a
 ```
 
@@ -636,7 +645,7 @@ fig_2b <- ggplot(ispy_plot_data,
     legend.justification = "left"
   )
 
-ggsave("fig_2b.svg", fig_2b, width = 6, height = 5, device = "svg")
+ggsave("poster/fig_2b.svg", fig_2b, width = 6, height = 5, device = "svg")
 fig_2b
 ```
 
