@@ -2,7 +2,7 @@
 
 ## Cytotoxic immune infiltration effects on breast cancer survival and immunotherapy response
 
-Submission repository for the Module 4 poster assignment (MSt Healthcare Data Science). Applies Danaher et al. (2017) immune gene scoring across three breast cancer cohorts (METABRIC, TCGA-BRCA, I-SPY2) to investigate the prognostic and predictive value of cytotoxic immune infiltration via Cox regression and logistic regression for immunotherapy response. A live build of the rendered report is [here](https://joelyu.github.io/HDS-W4/HDS_04_YuChungYan_2604.html).
+Submission repository for the Module 4 poster assignment (MSt Healthcare Data Science). Applies Danaher et al. (2017) immune gene scoring across three breast cancer cohorts (METABRIC, TCGA-BRCA, I-SPY2) to investigate the prognostic and predictive value of cytotoxic immune infiltration via Cox regression and logistic regression for immunotherapy response. A live build of the rendered report is [here](https://joelyu.github.io/HDS-W4/HDS_04_YuChungYan_2604.html)., and the poster [here](https://joelyu.github.io/HDS-W4/poster/poster.pdf).
 
 ### Environment Setup
 
